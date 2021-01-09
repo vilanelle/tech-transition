@@ -1,0 +1,79 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "jest"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
+  ],
+  "overrides": [
+    {
+      "files": ["**/setupTests.ts", "**/*.test.{ts,tsx}"],
+      "rules": {
+        "react/jsx-boolean-value": "off",
+        "import/no-extraneous-dependencies": "off",
+        "dot-notation": "off",
+        "@typescript-eslint/camelcase": "off"
+      }
+    }
+  ],
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 200
+      }
+    ],
+    "linebreak-style": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "no-confusing-arrow": "off",
+    "no-unused-expressions": [
+      "warn",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
+    "object-curly-newline": "off",
+    "@typescript-eslint/prefer-interface": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
+    "indent": [
+      "error",
+      2
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-curly-brace-presence": "warn",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/ban-types": ["off"]
+  }
+}
