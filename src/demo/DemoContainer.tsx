@@ -18,8 +18,9 @@ export const DemoContainer: React.FC<{}> = () => (
     </AppBar>
     <Box m={3}>
       <Typography variant="h5">Buttons</Typography>
-      <Box display="flex" width={400} justifyContent="space-between" mt={1}>
+      <Box display="flex" width={500} justifyContent="space-between" mt={1}>
         <Button color="primary">Primary</Button>
+        <Button color="secondary">Secondary</Button>
         <Button variant="outlined">Outlined</Button>
         <Button variant="contained">Contained</Button>
       </Box>
