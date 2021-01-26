@@ -5,15 +5,12 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { DemoContainer } from './demo/DemoContainer';
 import { theme } from './layout/theme';
 
-import { HomePageLayout } from './layout/HomePageLayout';
-
 export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
         {/* Replace with actual content */}
-        <HomePageLayout />
-        {/* <DemoContainer /> */}
+        <DemoContainer />
       </ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>
