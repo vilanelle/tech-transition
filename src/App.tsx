@@ -12,11 +12,6 @@ export const App: React.FC<{}> = () => (
       <ThemeProvider theme={theme}>
         {/* Replace with actual content */}
         <DemoContainer />
-        <CategoryCard
-          title="Frontend"
-          description="Frontend development is awesome!!!"
-          avatarSrc=""
-        />
       </ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>
