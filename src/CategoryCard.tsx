@@ -10,13 +10,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-type Props = {
+type CardProps = {
   title: string;
   description: string;
   avatarSrc: string;
 };
 
-export const CategoryCard: React.FC<Props> = ({
+export const CategoryCard: React.FC<CardProps> = ({
   title,
   description,
   avatarSrc,
