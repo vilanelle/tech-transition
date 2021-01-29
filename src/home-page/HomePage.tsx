@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { MainContainer } from './components/MainContainer';
+import { MainContainer } from '../layout/components/MainContainer';
 import { Header } from './components/Header';
 import { Description } from './components/Description';
 import { GridContainer } from './components/GridContainer';
 
-export const HomePageLayout: React.FC<{}> = () => (
+export const HomePage: React.FC<{}> = () => (
   <MainContainer>
     <Header />
     <Description />

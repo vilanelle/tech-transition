@@ -6,7 +6,6 @@ const DescriptionContainer = styled('div')`
   text-align: center;
   margin: auto;
   width: 80%;
-  margin: auto;
   margin-top: 2em;
 
   *:not(:last-child) {
@@ -24,8 +23,8 @@ const DescriptionContainer = styled('div')`
 
 export const Description: React.FC<{}> = () => (
   <DescriptionContainer>
-    <Typography color="textPrimary">So you want to work in IT? Or you just curious about opportunities in the TECH world?</Typography>
-    <Typography color="textPrimary">You&apos;re in the right place!</Typography>
-    <Typography color="textPrimary">Explore the options below and decide which path works best for you.</Typography>
+    <Typography>So you want to work in IT? Or you just curious about opportunities in the TECH world?</Typography>
+    <Typography>You&apos;re in the right place!</Typography>
+    <Typography>Explore the options below and decide which path works best for you.</Typography>
   </DescriptionContainer>
 );
