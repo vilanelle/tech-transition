@@ -9,7 +9,6 @@ export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        {/* Replace with actual content */}
         <HomePage />
       </ThemeProvider>
     </MuiThemeProvider>
