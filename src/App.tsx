@@ -8,7 +8,7 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { DemoContainer } from './demo/DemoContainer';
 import { theme } from './layout/theme';
-import { ITRoleRouter } from './common/ITRoleRouter';
+import { ITProfessions } from './ITProfessions';
 
 export const App: React.FC<{}> = () => (
   <MuiThemeProvider theme={theme}>
@@ -18,8 +18,11 @@ export const App: React.FC<{}> = () => (
           <Route exact path="/">
             <DemoContainer />
           </Route>
-          <ITRoleRouter path="/backend" proffesion="backend" />
-          <ITRoleRouter path="/frontend" proffesion="frontend" />
+          {ITProfessions.map((r) => (
+            <Route exact path={`/${r}`} key={r}>
+              <p>Works {r}</p>
+            </Route>
+          ))}
         </Switch>
       </Router>
     </ThemeProvider>
