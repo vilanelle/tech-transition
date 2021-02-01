@@ -6,25 +6,28 @@ import {
   Route,
 } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { DemoContainer } from './demo/DemoContainer';
+import { StylesProvider } from '@material-ui/core/styles';
+import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { ITProfessions } from './ITProfessions';
 
 export const App: React.FC<{}> = () => (
-  <MuiThemeProvider theme={theme}>
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <DemoContainer />
-          </Route>
-          {ITProfessions.map((r) => (
-            <Route exact path={`/${r}`} key={r}>
-              <p>Works {r}</p>
+  <StylesProvider injectFirst>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
             </Route>
-          ))}
-        </Switch>
-      </Router>
-    </ThemeProvider>
-  </MuiThemeProvider>
+            {ITProfessions.map((r) => (
+              <Route exact path={`/${r}`} key={r}>
+                <p>Works {r}</p>
+              </Route>
+            ))}
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </MuiThemeProvider>
+  </StylesProvider>
 );
