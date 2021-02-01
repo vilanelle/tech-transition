@@ -24,20 +24,20 @@ export const CategoryCard: React.FC<CardProps> = ({
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card
+      className={classes.root}
+      onClick={() => {
+        alert('onClick action placeholder');
+      }}
+    >
       <CardHeader
         title={title}
         subheader={description}
         action={(
-          <IconButton>
-            <Avatar
-              aria-label="avatar"
-              src={avatarSrc}
-              onClick={() => {
-                alert('onClick action placeholder');
-              }}
-            />
-          </IconButton>
+          <Avatar
+            aria-label="avatar"
+            src={avatarSrc}
+          />
         )}
       />
     </Card>
