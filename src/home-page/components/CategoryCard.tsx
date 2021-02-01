@@ -1,14 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, IconButton, Avatar } from '@material-ui/core';
+import { Card, CardHeader, Avatar } from '@material-ui/core';
+import styled from 'styled-components';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(1),
-    maxWidth: 500,
-    margin: '10px auto',
-  },
-}));
+const CategoryCardContainer = styled('div')`
+  margin: 10px auto;
+  min-width: 100%;
+`;
 
 type CardProps = {
   title: string;
@@ -21,25 +18,24 @@ export const CategoryCard: React.FC<CardProps> = ({
   description,
   avatarSrc,
 }) => {
-  const classes = useStyles();
-
   return (
-    <Card
-      className={classes.root}
-      onClick={() => {
-        alert('onClick action placeholder');
-      }}
-    >
-      <CardHeader
-        title={title}
-        subheader={description}
-        action={(
-          <Avatar
-            aria-label="avatar"
-            src={avatarSrc}
-          />
-        )}
-      />
-    </Card>
+    <CategoryCardContainer>
+      <Card
+        onClick={() => {
+          alert('onClick action placeholder');
+        }}
+      >
+        <CardHeader
+          title={title}
+          subheader={description}
+          action={(
+            <Avatar
+              aria-label="avatar"
+              src={avatarSrc}
+            />
+          )}
+        />
+      </Card>
+    </CategoryCardContainer>
   );
 };

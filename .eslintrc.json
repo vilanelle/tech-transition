@@ -42,6 +42,7 @@
     "import/prefer-default-export": "off",
     "no-confusing-arrow": "off",
     "arrow-parens": ["warn", "as-needed"],
+    "arrow-body-style": ["warn", "always"],
     "no-unused-expressions": [
       "warn",
       {
