@@ -26,6 +26,7 @@ type CardProps = {
   description: string;
   avatarSrc: string;
   avatarBackground: string;
+  clickHandler: () => any;
 };
 
 export const CategoryCard: React.FC<CardProps> = ({
@@ -33,12 +34,11 @@ export const CategoryCard: React.FC<CardProps> = ({
   description,
   avatarSrc,
   avatarBackground,
+  clickHandler,
 }) => {
   return (
     <CategoryCardContainer
-      onClick={() => {
-        alert('onClick action placeholder');
-      }}
+      onClick={clickHandler}
     >
       <CardHeaderContainer
         title={title}
