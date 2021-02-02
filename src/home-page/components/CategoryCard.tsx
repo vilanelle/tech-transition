@@ -2,9 +2,22 @@ import React from 'react';
 import { Card, CardHeader, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
 
-const CategoryCardContainer = styled('div')`
-  margin: 10px auto;
-  min-width: 100%;
+const CategoryCardContainer = styled(Card)`
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+ :hover {
+   opacity: 0.8;
+ }   
+`;
+
+const CardHeaderContainer = styled(CardHeader)`
+ width: 100%;
+`;
+
+const AvatarContainer = styled(Avatar)`
+ margin-right: 1em;
 `;
 
 type CardProps = {
@@ -19,23 +32,16 @@ export const CategoryCard: React.FC<CardProps> = ({
   avatarSrc,
 }) => {
   return (
-    <CategoryCardContainer>
-      <Card
-        onClick={() => {
-          alert('onClick action placeholder');
-        }}
-      >
-        <CardHeader
-          title={title}
-          subheader={description}
-          action={(
-            <Avatar
-              aria-label="avatar"
-              src={avatarSrc}
-            />
-          )}
-        />
-      </Card>
+    <CategoryCardContainer
+      onClick={() => {
+        alert('onClick action placeholder');
+      }}
+    >
+      <CardHeaderContainer
+        title={title}
+        subheader={description}
+      />
+      <AvatarContainer src={avatarSrc} />
     </CategoryCardContainer>
   );
 };
