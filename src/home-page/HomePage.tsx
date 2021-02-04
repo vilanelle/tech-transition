@@ -16,6 +16,7 @@ export const HomePage: React.FC<{}> = () => {
         {cards.map(({ title, description, color, icon }) => {
           return (
             <CategoryCard
+              key={title}
               title={title}
               description={description}
               avatarSrc={icon}

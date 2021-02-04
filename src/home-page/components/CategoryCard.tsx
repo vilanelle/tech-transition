@@ -16,9 +16,9 @@ const CardHeaderContainer = styled(CardHeader)`
   width: 100%;
 `;
 
-const AvatarContainer = styled(Avatar)<{ backgroundColor: string }>`
+const AvatarContainer = styled(Avatar)<{ background: string }>`
   margin-right: 1em;
-  background-color: ${({ backgroundColor }) => { return backgroundColor; }};
+  background-color: ${({ background }) => { return background; }};
   padding: .75rem;
 `;
 
@@ -40,7 +40,7 @@ export const CategoryCard: React.FC<CardProps> = ({
   return (
     <CategoryCardContainer onClick={clickHandler}>
       <CardHeaderContainer title={title} subheader={description} />
-      <AvatarContainer src={avatarSrc} backgroundColor={avatarBackground} />
+      <AvatarContainer src={avatarSrc} background={avatarBackground} />
     </CategoryCardContainer>
   );
 };
