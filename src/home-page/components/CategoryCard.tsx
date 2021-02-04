@@ -7,18 +7,19 @@ const CategoryCardContainer = styled(Card)`
   display: flex;
   align-items: center;
 
- :hover {
-   opacity: 0.8;
- }   
+  :hover {
+    opacity: 0.8;
+  }
 `;
 
 const CardHeaderContainer = styled(CardHeader)`
- width: 100%;
+  width: 100%;
 `;
 
-const AvatarContainer = styled(Avatar)<{backgroundColor: string}>`
- margin-right: 1em;
- background-color: ${props => props.backgroundColor};
+const AvatarContainer = styled(Avatar)<{ backgroundColor: string }>`
+  margin-right: 1em;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  padding: .75rem;
 `;
 
 type CardProps = {
@@ -26,7 +27,7 @@ type CardProps = {
   description: string;
   avatarSrc: string;
   avatarBackground: string;
-  clickHandler: () => any;
+  clickHandler: () => void;
 };
 
 export const CategoryCard: React.FC<CardProps> = ({
@@ -37,13 +38,8 @@ export const CategoryCard: React.FC<CardProps> = ({
   clickHandler,
 }) => {
   return (
-    <CategoryCardContainer
-      onClick={clickHandler}
-    >
-      <CardHeaderContainer
-        title={title}
-        subheader={description}
-      />
+    <CategoryCardContainer onClick={clickHandler}>
+      <CardHeaderContainer title={title} subheader={description} />
       <AvatarContainer src={avatarSrc} backgroundColor={avatarBackground} />
     </CategoryCardContainer>
   );
