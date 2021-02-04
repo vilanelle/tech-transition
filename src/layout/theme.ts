@@ -1,6 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
-import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 
 const breakpoints = createBreakpoints({});
@@ -28,10 +27,14 @@ export const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: purple[500],
+      main: '#725ec0',
     },
     secondary: {
       main: green[500],
+    },
+    text: {
+      primary: '#222222',
+      disabled: '#22222233', // Text color with opacity 30%
     },
   },
 });
