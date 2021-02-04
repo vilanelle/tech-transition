@@ -7,20 +7,24 @@ import { GridContainer } from './components/GridContainer';
 import { CategoryCard } from './components/CategoryCard';
 import { cards } from './data/data';
 
-export const HomePage: React.FC<{}> = () => (
-  <MainContainer>
-    <Header />
-    <Description />
-    <GridContainer>
-      {cards.map(({ title, description, color, icon }) => (
-        <CategoryCard
-          title={title}
-          description={description}
-          avatarSrc={icon}
-          avatarBackground={color}
-          clickHandler={() => console.log('Click')}
-        />
-      ))}
-    </GridContainer>
-  </MainContainer>
-);
+export const HomePage: React.FC<{}> = () => {
+  return (
+    <MainContainer>
+      <Header />
+      <Description />
+      <GridContainer>
+        {cards.map(({ title, description, color, icon }) => {
+          return (
+            <CategoryCard
+              title={title}
+              description={description}
+              avatarSrc={icon}
+              avatarBackground={color}
+              clickHandler={() => { return true; }}
+            />
+          );
+        })}
+      </GridContainer>
+    </MainContainer>
+  );
+};

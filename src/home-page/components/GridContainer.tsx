@@ -11,7 +11,7 @@ export const GridContainer = styled('div')`
     grid-gap: 2em;
     justify-items: center;
 
-    ${props => props.theme.breakpoints.down('sm')} {
+    ${props => { return props.theme.breakpoints.down('sm'); }} {
       width: 90%;
       margin-top: 1.5em;
     }
