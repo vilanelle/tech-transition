@@ -10,6 +10,7 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { ITProfessions } from './ITProfessions';
+import { DetailPage } from './detail-page/DetailPage';
 
 export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
@@ -20,9 +21,9 @@ export const App: React.FC<{}> = () => (
             <Route exact path="/">
               <HomePage />
             </Route>
-            {ITProfessions.map((r) => (
-              <Route exact path={`/${r}`} key={r}>
-                <p>Works {r}</p>
+            {ITProfessions.map((profession) => (
+              <Route exact path={`/details/${profession.name}`} key={profession.name}>
+                <DetailPage profession={profession.name} description={profession.description} />
               </Route>
             ))}
           </Switch>
