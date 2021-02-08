@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Card, Tabs } from '@material-ui/core';
 import styled from 'styled-components';
+
 import { TabPanel } from './TabPanel';
 import { StyledTab } from './StyledTab';
+import { JobsTab } from './JobsTab';
+import { LearnTab } from './LearnTab';
+import { ResourcesTab } from './ResourcesTab';
 import { categories } from './TabCategories';
 
 const StyledTabs = styled(Tabs)`
@@ -31,7 +35,7 @@ export const TabsContainer: React.FC<TabProps> = ({
 }) => {
   const [choosesCategory, setChoosesCategory] = useState(0);
 
-  const TabsContent = categories.map((category, id) => {
+  const TabsHeading = categories.map((category: any, id: number) => {
     return (
       <StyledTab
         key={category.name}
@@ -44,10 +48,22 @@ export const TabsContainer: React.FC<TabProps> = ({
   });
 
   const TabPanels = categories.map((category, id) => {
+    let tabContent;
+    switch (category.name) {
+    case 'jobs': {
+      tabContent = <JobsTab content={jobs} />;
+      break;
+    } case 'learn': {
+      tabContent = <LearnTab content={learn} />;
+      break;
+    } case 'resources': {
+      tabContent = <ResourcesTab content={resources} />;
+      break;
+    } default: throw new Error('Wrong category name!');
+    }
     return (
       <TabPanel value={choosesCategory} index={id} key={category.name}>
-        {/* Should be replace with actual content */}
-        {category.name}
+        {tabContent}
       </TabPanel>
     );
   });
@@ -58,7 +74,7 @@ export const TabsContainer: React.FC<TabProps> = ({
         indicatorColor="primary"
         value={choosesCategory}
       >
-        {TabsContent}
+        {TabsHeading}
       </StyledTabs>
       {TabPanels}
     </StyledCard>

@@ -24,7 +24,7 @@ export const StyledTab: React.FC<TabProps> = ({ text, chosenTab, index, onClick 
     <TabWithStyle
       label={text}
       className={chosenTab === index ? 'active' : ''}
-      onClick={() => onClick(index)}
+      onClick={() => { return onClick(index); }}
     />
   );
 };
