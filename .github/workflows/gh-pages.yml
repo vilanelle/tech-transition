@@ -20,7 +20,7 @@ jobs:
       - run: npm lint
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, test-lint]
+    needs: [build]
     steps:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
