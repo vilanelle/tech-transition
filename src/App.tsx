@@ -26,7 +26,7 @@ export const App: React.FC<{}> = () => {
                   <Route exact path={`/${r}`} key={r}>
                     <p>Works {r}</p>
                   </Route>
-                )
+                );
               })}
             </Switch>
           </Router>
