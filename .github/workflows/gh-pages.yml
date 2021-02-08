@@ -18,9 +18,6 @@ jobs:
       - run: npm build
       - run: npm test
       - run: npm run lint
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
       - name: deploy
         uses: crazy-max/ghaction-github-pages@v1
         with:
