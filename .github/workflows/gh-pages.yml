@@ -17,6 +17,7 @@ jobs:
       - run: npm install
       - run: npm build
   test-lint:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
         - name: Set-up Node
@@ -24,8 +25,6 @@ jobs:
           with:
             node-version: "10.x"
       - run: npm install
-        needs: [build]
-        steps:
       - run: npm test
       - run: npm lint
   deploy:
