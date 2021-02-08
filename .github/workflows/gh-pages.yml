@@ -5,6 +5,13 @@ on:
       - DRM-7
 
 jobs:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Set-up Node
+    uses: actions/setup-node@v1
+     with:
+      node-version: "10.x"
+  - run: npm install
   build:
     runs-on: ubuntu-latest
     steps:
