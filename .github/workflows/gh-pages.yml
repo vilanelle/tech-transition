@@ -18,10 +18,8 @@ jobs:
       - run: npm build
       - run: npm test
       - run: npm run lint
-      - name: deploy
-        uses: crazy-max/ghaction-github-pages@v1
-        with:
-          target_branch: gh-pages
-          build_dir: public
-        env:
-          GITHUB_TOKEN: e23663f2ccdf1cbbbe6a46a46939ccfbc2e9945e
+      - name: Deploy
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./public
