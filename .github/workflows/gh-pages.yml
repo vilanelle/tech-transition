@@ -18,6 +18,11 @@ jobs:
       - run: npm build
   test-lint:
     runs-on: ubuntu-latest
+    - name: Set-up Node
+    uses: actions/setup-node@v1
+    with:
+      node-version: "10.x"
+  - run: npm install
     needs: [build]
     steps:
       - run: npm test
