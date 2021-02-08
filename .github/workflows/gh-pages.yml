@@ -19,7 +19,6 @@ jobs:
   test-lint:
     runs-on: ubuntu-latest
     needs: [build]
-    uses: actions/setup-node@v1
     steps:
       - run: npm test
       - run: npm lint
