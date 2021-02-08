@@ -11,7 +11,7 @@ const DescriptionContainer = styled('div')`
   *:not(:last-child) {
     margin-bottom: 1em;
   }
-  ${props => props.theme.breakpoints.down('sm')} {
+  ${props => { return props.theme.breakpoints.down('sm'); }} {
     width: 90%;
     margin-top: 1.5em;
 
@@ -21,10 +21,12 @@ const DescriptionContainer = styled('div')`
   }
 `;
 
-export const Description: React.FC<{}> = () => (
-  <DescriptionContainer>
-    <Typography>So you want to work in IT? Or you just curious about opportunities in the TECH world?</Typography>
-    <Typography>You&apos;re in the right place!</Typography>
-    <Typography>Explore the options below and decide which path works best for you.</Typography>
-  </DescriptionContainer>
-);
+export const Description: React.FC<{}> = () => {
+  return (
+    <DescriptionContainer>
+      <Typography>So you want to work in IT? Or you just curious about opportunities in the TECH world?</Typography>
+      <Typography>You&apos;re in the right place!</Typography>
+      <Typography>Explore the options below and decide which path works best for you.</Typography>
+    </DescriptionContainer>
+  );
+};

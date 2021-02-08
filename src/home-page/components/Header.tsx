@@ -10,8 +10,10 @@ const HeaderTypography = styled(Typography)`
   margin: auto;
 `;
 
-export const Header: React.FC<{}> = () => (
-  <HeaderTypography variant="h1">
-    Power up your transITion
-  </HeaderTypography>
-);
+export const Header: React.FC<{}> = () => {
+  return (
+    <HeaderTypography variant="h1">
+      Power up your transITion
+    </HeaderTypography>
+  );
+};
