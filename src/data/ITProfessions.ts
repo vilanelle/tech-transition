@@ -5,7 +5,18 @@ import projectIcon from '../icons/project_manager.svg';
 import qaIcon from '../icons/qa.svg';
 import uxIcon from '../icons/ux_ui.svg';
 
-export const ITProfessions = [
+export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
+
+interface ProfessionInterface {
+  id: ProfessionKey;
+  title: string;
+  description: string;
+  color: ProfessionKey;
+  icon: string;
+  route: ProfessionKey;
+}
+
+export const ITProfessions: ProfessionInterface[] = [
   {
     id: 'frontend',
     title: 'Frontend',
@@ -25,13 +36,13 @@ export const ITProfessions = [
     route: 'backend',
   },
   {
-    id: 'ux-ui',
+    id: 'uxui',
     title: 'UX/UI',
     description:
       'A UX/UI designs app to make them good-looking and user-friendly',
     color: 'uxui',
     icon: uxIcon,
-    route: 'ux-ui',
+    route: 'uxui',
   },
   {
     id: 'qa',
@@ -51,12 +62,12 @@ export const ITProfessions = [
     route: 'devops',
   },
   {
-    id: 'project-manager',
+    id: 'projectmanager',
     title: 'Project Manager',
     description:
       'Project managers plan, monitor, control and organize projects',
     color: 'projectmanager',
     icon: projectIcon,
-    route: 'project-manager',
+    route: 'projectmanager',
   },
 ];

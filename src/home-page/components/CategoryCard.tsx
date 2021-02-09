@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
+import { ProfessionKey } from '../../data/ITProfessions';
 
 const CategoryCardContainer = styled(Card)`
   width: 100%;
@@ -16,7 +17,7 @@ const CardHeaderContainer = styled(CardHeader)`
   width: 100%;
 `;
 
-const AvatarContainer = styled(Avatar)<{ background: string }>`
+const AvatarContainer = styled(Avatar)<{ background: ProfessionKey }>`
   margin-right: 1em;
   background-color: ${({ background, theme }) => theme.palette.professions[background].main};
   padding: .75em;
@@ -26,7 +27,7 @@ type CardProps = {
   title: string;
   description: string;
   avatarSrc: string;
-  avatarBackground: string;
+  avatarBackground: ProfessionKey;
   clickHandler: (route: string) => void;
   route: string;
 };
