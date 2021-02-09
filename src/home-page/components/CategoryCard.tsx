@@ -27,7 +27,8 @@ type CardProps = {
   description: string;
   avatarSrc: string;
   avatarBackground: string;
-  clickHandler: () => boolean;
+  clickHandler: (route: string) => void;
+  route: string;
 };
 
 export const CategoryCard: React.FC<CardProps> = ({
@@ -36,8 +37,9 @@ export const CategoryCard: React.FC<CardProps> = ({
   avatarSrc,
   avatarBackground,
   clickHandler,
+  route,
 }) => (
-  <CategoryCardContainer onClick={clickHandler}>
+  <CategoryCardContainer onClick={() => clickHandler(route)}>
     <CardHeaderContainer title={title} subheader={description} />
     <AvatarContainer src={avatarSrc} background={avatarBackground} />
   </CategoryCardContainer>
