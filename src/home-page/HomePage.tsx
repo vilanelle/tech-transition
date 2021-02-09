@@ -5,16 +5,16 @@ import { Header } from './components/Header';
 import { Description } from './components/Description';
 import { GridContainer } from './components/GridContainer';
 import { CategoryCard } from './components/CategoryCard';
-import { cards } from './data/data';
+import { ITProfessions } from '../data/ITProfessions';
 
 export const HomePage: React.FC<{}> = () => (
   <MainContainer>
     <Header />
     <Description />
     <GridContainer>
-      {cards.map(({ title, description, color, icon }) => (
+      {ITProfessions.map(({ title, description, color, icon, id }) => (
         <CategoryCard
-          key={title}
+          key={id}
           title={title}
           description={description}
           avatarSrc={icon}
