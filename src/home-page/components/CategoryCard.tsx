@@ -18,7 +18,7 @@ const CardHeaderContainer = styled(CardHeader)`
 
 const AvatarContainer = styled(Avatar)<{ background: string }>`
   margin-right: 1em;
-  background-color: ${({ background }) => background};
+  background-color: ${({ background, theme }) => theme.palette.professions[background].main};
   padding: .75em;
 `;
 

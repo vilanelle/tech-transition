@@ -11,7 +11,7 @@ export const ITProfessions = [
     title: 'Frontend',
     description:
       'A frontend engineer works on those parts of web apps you actually see',
-    color: '#bee5e4',
+    color: 'frontend',
     icon: frontendIcon,
     route: 'frontend',
   },
@@ -20,7 +20,7 @@ export const ITProfessions = [
     title: 'Backend',
     description:
       'A backend engineer handles communication between user and database, processes and saves data',
-    color: '#ff85be',
+    color: 'backend',
     icon: backendIcon,
     route: 'backend',
   },
@@ -29,7 +29,7 @@ export const ITProfessions = [
     title: 'UX/UI',
     description:
       'A UX/UI designs app to make them good-looking and user-friendly',
-    color: '#7ec2ff',
+    color: 'uxui',
     icon: uxIcon,
     route: 'ux-ui',
   },
@@ -37,7 +37,7 @@ export const ITProfessions = [
     id: 'qa',
     title: 'QA',
     description: 'A QA tests software to detect any bugs and errors',
-    color: '#fdf580',
+    color: 'qa',
     icon: qaIcon,
     route: 'qa',
   },
@@ -46,7 +46,7 @@ export const ITProfessions = [
     title: 'DevOps',
     description:
       'A DevOps creates and maintains infrastructure that software runs on',
-    color: '#d99cff',
+    color: 'devops',
     icon: devopsIcon,
     route: 'devops',
   },
@@ -55,7 +55,7 @@ export const ITProfessions = [
     title: 'Project Manager',
     description:
       'Project managers plan, monitor, control and organize projects',
-    color: '#aafa87',
+    color: 'projectmanager',
     icon: projectIcon,
     route: 'project-manager',
   },
