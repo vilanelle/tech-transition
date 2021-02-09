@@ -1,4 +1,4 @@
-interface ITProfession {
+export interface ITProfession {
   id: string;
   name: string;
   description: string;

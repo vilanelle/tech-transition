@@ -1,18 +1,16 @@
 import React from 'react';
 
 import { MainContainer } from '../layout/components/MainContainer';
+import { ITProfession } from '../ITProfessions';
 
 type DetailProps = {
-  profession: string;
-  description: string;
+  profession: ITProfession;
 }
 
 export const DetailPage: React.FC<DetailProps> = ({
   profession,
-  description,
 }) => (
   <MainContainer>
-    <div>{profession}</div>
-    <div>{description}</div>
+    <div>{profession.name}</div>
   </MainContainer>
 );
