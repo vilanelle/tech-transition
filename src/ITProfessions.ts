@@ -1,4 +1,11 @@
-export const ITProfessions: { id: string, name: string, description: string, route: string }[] = [
+interface ITProfession {
+  id: string;
+  name: string;
+  description: string;
+  route: string;
+}
+
+export const ITProfessions: ITProfession[] = [
   {
     id: 'backend',
     name: 'Backend',
