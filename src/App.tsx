@@ -11,27 +11,23 @@ import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { ITProfessions } from './ITProfessions';
 
-export const App: React.FC<{}> = () => {
-  return (
-    <StylesProvider injectFirst>
-      <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <Router>
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
+export const App: React.FC<{}> = () => (
+  <StylesProvider injectFirst>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            {ITProfessions.map(r => (
+              <Route exact path={`/${r}`} key={r}>
+                <p>Works {r}</p>
               </Route>
-              {ITProfessions.map(r => {
-                return (
-                  <Route exact path={`/${r}`} key={r}>
-                    <p>Works {r}</p>
-                  </Route>
-                );
-              })}
-            </Switch>
-          </Router>
-        </ThemeProvider>
-      </MuiThemeProvider>
-    </StylesProvider>
-  );
-};
+            ))}
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </MuiThemeProvider>
+  </StylesProvider>
+);
