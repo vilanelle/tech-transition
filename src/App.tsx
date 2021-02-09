@@ -16,7 +16,7 @@ export const App: React.FC<{}> = () => {
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <Router>
+          <Router basename="/">
             <Switch>
               <Route exact path="/">
                 <HomePage />
