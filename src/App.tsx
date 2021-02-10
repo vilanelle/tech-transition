@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
+import { DetailPage } from './detail-page/DetailPage';
 import { ITProfessions } from './data/ITProfessions';
 
 export const App: React.FC<{}> = () => (
@@ -16,9 +17,9 @@ export const App: React.FC<{}> = () => (
             <Route exact path="/">
               <HomePage />
             </Route>
-            {ITProfessions.map(({ route, id }) => (
-              <Route exact path={`/${route}`} key={id}>
-                <p>Works {route}</p>
+            {ITProfessions.map((profession) => (
+              <Route exact path={`/details/${profession.route}`} key={profession.id}>
+                <DetailPage profession={profession} />
               </Route>
             ))}
           </Switch>

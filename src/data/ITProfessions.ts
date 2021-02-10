@@ -7,7 +7,7 @@ import uxIcon from '../icons/ux_ui.svg';
 
 export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
 
-interface ProfessionInterface {
+export interface ProfessionInterface {
   id: ProfessionKey;
   title: string;
   description: string;
