@@ -22,7 +22,7 @@ export const App: React.FC<{}> = () => (
               <HomePage />
             </Route>
             {ITProfessions.map((profession) => (
-              <Route exact path={`/details/${profession.route}`} key={profession.route}>
+              <Route exact path={`/details/${profession.route}`} key={profession.id}>
                 <DetailPage profession={profession} />
               </Route>
             ))}
