@@ -1,16 +1,12 @@
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
-import { ITProfessions } from './ITProfessions';
 import { DetailPage } from './detail-page/DetailPage';
+import { ITProfessions } from './data/ITProfessions';
 
 export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
