@@ -1,8 +1,5 @@
 name: gh-pages
-on:
-  push:
-    branches:
-      - DRM-7
+on: [push, pull_request]
 
 jobs:
   build-test:
@@ -19,6 +16,7 @@ jobs:
       - run: npm test
       - run: npm run lint
       - name: Deploy
+        if: github.event.pull_request.merged == 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
