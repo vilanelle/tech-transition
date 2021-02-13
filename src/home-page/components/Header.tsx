@@ -13,7 +13,7 @@ const HeaderTypography = styled(Typography)`
 export const Header: React.FC<{}> = () => {
   return (
     <HeaderTypography variant="h1">
-      Power up your transITion
+      I should not be deployed, oh no.
     </HeaderTypography>
   );
 };
