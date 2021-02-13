@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Route, Link, useRouteMatch } from 'react-router-dom';
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
 import styled from 'styled-components';
 
@@ -12,6 +13,11 @@ import { Category } from '../../data/TabCategories';
 const StyledTabs = styled(MuiTabs)`
   border-bottom: 1px solid ${props => { return props.theme.palette.text.disabled; }};
   color: inherit;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const StyledCard = styled(Card)`
@@ -36,6 +42,7 @@ export const Tabs: React.FC<TabProps> = ({
   resources,
 }) => {
   const [chosenCategory, setChosenCategory] = useState(0);
+  const match = useRouteMatch();
 
   const getTabContent = (categoryName: String) => {
     switch (categoryName) {
@@ -56,22 +63,27 @@ export const Tabs: React.FC<TabProps> = ({
         value={chosenCategory}
       >
         {categories.map((category, index) => {
+          const urlPath = index === 0 ? match.url : `${match.url}/${category.name}`;
           return (
-            <Tab
-              key={category.name}
-              text={category.text}
-              chosenTab={chosenCategory}
-              index={index}
-              onClick={setChosenCategory}
-            />
+            <Link to={`${urlPath}`} key={category.name}>
+              <Tab
+                text={category.text}
+                chosenTab={chosenCategory}
+                index={index}
+                onClick={setChosenCategory}
+              />
+            </Link>
           );
         })}
       </StyledTabs>
-      {categories.map((category, id) => {
+      {categories.map((category, index) => {
+        const urlPath = (index === 0) ? match.path : `${match.path}/${category.name}`;
         return (
-          <TabPanel value={chosenCategory} index={id} key={category.name}>
-            {getTabContent(category.name)}
-          </TabPanel>
+          <Route exact path={`${urlPath}`}>
+            <TabPanel key={category.name}>
+              {getTabContent(category.name)}
+            </TabPanel>
+          </Route>
         );
       })}
     </StyledCard>
