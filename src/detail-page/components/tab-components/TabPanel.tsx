@@ -1,9 +1,9 @@
 import React from 'react';
 
 interface TabPanelProps {
-    children?: React.ReactNode;
-    index: unknown;
-    value: unknown;
+  children?: React.ReactNode;
+  index: number;
+  value: number;
 }
 
 export const TabPanel: React.FC<TabPanelProps> = ({ children, value, index }) => {

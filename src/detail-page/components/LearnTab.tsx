@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface TabProps {
-    content: any;
+interface LearnProps {
+  content: any;
 }
 
-export const LearnTab: React.FC<TabProps> = ({ content }) => {
+export const LearnTab: React.FC<LearnProps> = ({ content }) => {
   return (
     <div>
       {/* Should be replace with actual content */}

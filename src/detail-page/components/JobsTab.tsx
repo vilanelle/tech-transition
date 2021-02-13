@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface TabProps {
-    content: any;
+interface JobProps {
+  content: any;
 }
 
-export const JobsTab: React.FC<TabProps> = ({ content }) => {
+export const JobsTab: React.FC<JobProps> = ({ content }) => {
   return (
     <div>
       {/* Should be replace with actual content */}
