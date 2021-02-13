@@ -1,3 +1,4 @@
+// This should be add to data/ItProfessions file
 export type Category = {
   name: string;
   text: string;
