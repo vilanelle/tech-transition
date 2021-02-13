@@ -18,7 +18,12 @@ interface TabProps {
   onClick: (index: number) => void;
 }
 
-export const Tab: React.FC<TabProps> = ({ text, chosenTab, index, onClick }) => {
+export const Tab: React.FC<TabProps> = ({
+  text,
+  chosenTab,
+  index,
+  onClick,
+}) => {
   /* Adding className active to chosen card for creating bold text */
   return (
     <StyledTab

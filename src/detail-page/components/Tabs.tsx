@@ -11,7 +11,8 @@ import { LearnTab } from './LearnTab';
 import { Category } from '../../data/TabCategories';
 
 const StyledTabs = styled(MuiTabs)`
-  border-bottom: 1px solid ${props => { return props.theme.palette.text.disabled; }};
+  border-bottom: 1px solid
+    ${props => props.theme.palette.text.disabled};
   color: inherit;
 
   a {
@@ -46,22 +47,20 @@ export const Tabs: React.FC<TabProps> = ({
 
   const getTabContent = (categoryName: String) => {
     switch (categoryName) {
-    case 'jobs':
-      return <JobsTab content={jobs} />;
-    case 'learn':
-      return <LearnTab content={learn} />;
-    case 'resources':
-      return <ResourcesTab content={resources} />;
-    default: throw new Error('Wrong category name!');
+      case 'jobs':
+        return <JobsTab content={jobs} />;
+      case 'learn':
+        return <LearnTab content={learn} />;
+      case 'resources':
+        return <ResourcesTab content={resources} />;
+      default:
+        throw new Error('Wrong category name!');
     }
   };
 
   return (
     <StyledCard>
-      <StyledTabs
-        indicatorColor="primary"
-        value={chosenCategory}
-      >
+      <StyledTabs indicatorColor="primary" value={chosenCategory}>
         {categories.map((category, index) => {
           const urlPath = index === 0 ? match.url : `${match.url}/${category.name}`;
           return (
@@ -77,7 +76,7 @@ export const Tabs: React.FC<TabProps> = ({
         })}
       </StyledTabs>
       {categories.map((category, index) => {
-        const urlPath = (index === 0) ? match.path : `${match.path}/${category.name}`;
+        const urlPath = index === 0 ? match.path : `${match.path}/${category.name}`;
         return (
           <Route exact path={`${urlPath}`}>
             <TabPanel key={category.name}>
