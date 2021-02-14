@@ -7,6 +7,11 @@ import uxIcon from '../icons/ux_ui.svg';
 
 export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
 
+export type Category = {
+  name: string;
+  text: string;
+}
+
 export interface ProfessionInterface {
   id: ProfessionKey;
   title: string;
@@ -14,7 +19,23 @@ export interface ProfessionInterface {
   color: ProfessionKey;
   icon: string;
   route: ProfessionKey;
+  categories: Category[];
 }
+
+const categories: Category[] = [
+  {
+    name: 'learn',
+    text: 'What do I learn',
+  },
+  {
+    name: 'jobs',
+    text: 'Jobs',
+  },
+  {
+    name: 'resources',
+    text: 'Useful Resources',
+  },
+];
 
 export const ITProfessions: ProfessionInterface[] = [
   {
@@ -25,6 +46,7 @@ export const ITProfessions: ProfessionInterface[] = [
     color: 'frontend',
     icon: frontendIcon,
     route: 'frontend',
+    categories,
   },
   {
     id: 'backend',
@@ -34,6 +56,7 @@ export const ITProfessions: ProfessionInterface[] = [
     color: 'backend',
     icon: backendIcon,
     route: 'backend',
+    categories,
   },
   {
     id: 'uxui',
@@ -43,6 +66,7 @@ export const ITProfessions: ProfessionInterface[] = [
     color: 'uxui',
     icon: uxIcon,
     route: 'uxui',
+    categories,
   },
   {
     id: 'qa',
@@ -51,6 +75,7 @@ export const ITProfessions: ProfessionInterface[] = [
     color: 'qa',
     icon: qaIcon,
     route: 'qa',
+    categories,
   },
   {
     id: 'devops',
@@ -60,6 +85,7 @@ export const ITProfessions: ProfessionInterface[] = [
     color: 'devops',
     icon: devopsIcon,
     route: 'devops',
+    categories,
   },
   {
     id: 'projectmanager',
@@ -69,5 +95,6 @@ export const ITProfessions: ProfessionInterface[] = [
     color: 'projectmanager',
     icon: projectIcon,
     route: 'projectmanager',
+    categories,
   },
 ];

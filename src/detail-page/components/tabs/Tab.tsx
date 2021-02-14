@@ -23,13 +23,11 @@ export const Tab: React.FC<TabProps> = ({
   chosenTab,
   index,
   onClick,
-}) => {
+}) => (
   /* Adding className active to chosen card for creating bold text */
-  return (
-    <StyledTab
-      label={text}
-      className={chosenTab === index ? 'active' : ''}
-      onClick={() => onClick(index)}
-    />
-  );
-};
+  <StyledTab
+    label={text}
+    className={chosenTab === index ? 'active' : ''}
+    onClick={() => onClick(index)}
+  />
+);

@@ -8,7 +8,7 @@ import { Tab } from './Tab';
 import { ResourcesTab } from '../ResourcesTab';
 import { JobsTab } from '../JobsTab';
 import { LearnTab } from '../LearnTab';
-import { Category } from '../../../data/TabCategories';
+import { Category } from '../../../data/ITProfessions';
 
 const StyledTabs = styled(MuiTabs)`
   border-bottom: 1px solid

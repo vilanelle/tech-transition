@@ -4,12 +4,10 @@ interface TabPanelProps {
   children?: React.ReactNode;
 }
 
-export const TabPanel: React.FC<TabPanelProps> = ({ children }) => {
-  return (
-    <div
-      role="tabpanel"
-    >
-      {children}
-    </div>
-  );
-};
+export const TabPanel: React.FC<TabPanelProps> = ({ children }) => (
+  <div
+    role="tabpanel"
+  >
+    {children}
+  </div>
+);
