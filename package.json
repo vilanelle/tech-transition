@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "PUBLIC_URL=/ react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=/tech-transition react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{ts,tsx}",
