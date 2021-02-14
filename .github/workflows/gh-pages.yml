@@ -1,5 +1,13 @@
 name: gh-pages
-on: [push, pull_request]
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for specific branches
+  push:
+    branches:
+      - workflow-test-3
+  pull_request:
+    branches:
+      - workflow-test-2
 
 jobs:
   build-test:
@@ -13,10 +21,10 @@ jobs:
           node-version: "10.x"
       - run: npm install
       - run: npm run build
-      - run: npm test
+      - run: npm run test
       - run: npm run lint
       - name: Deploy
-        if: github.event.pull_request.merged == 'true'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/workflow-test-3'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
