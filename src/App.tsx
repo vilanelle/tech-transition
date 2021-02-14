@@ -16,7 +16,7 @@ export const App: React.FC<{}> = () => {
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <Router basename={window.location.pathname || ''}>
+          <Router basename={process.env.NODE_ENV === 'production' ? '/tech-transition' : '/'}>
             <Switch>
               <Route exact path="/">
                 <HomePage />
