@@ -3,12 +3,12 @@ import { Route, Link, useRouteMatch } from 'react-router-dom';
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
 import styled from 'styled-components';
 
-import { TabPanel } from './tab-components/TabPanel';
-import { Tab } from './tab-components/Tab';
-import { ResourcesTab } from './ResourcesTab';
-import { JobsTab } from './JobsTab';
-import { LearnTab } from './LearnTab';
-import { Category } from '../../data/TabCategories';
+import { TabPanel } from './TabPanel';
+import { Tab } from './Tab';
+import { ResourcesTab } from '../ResourcesTab';
+import { JobsTab } from '../JobsTab';
+import { LearnTab } from '../LearnTab';
+import { Category } from '../../../data/TabCategories';
 
 const StyledTabs = styled(MuiTabs)`
   border-bottom: 1px solid
