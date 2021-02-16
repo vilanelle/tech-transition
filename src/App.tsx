@@ -23,7 +23,7 @@ export const App: React.FC<{}> = () => {
               </Route>
               {ITProfessions.map(r => {
                 return (
-                  <Route exact path={`/${r}`} key={r}>
+                  <Route exact path={`${process.env.PUBLIC_URL}/${r}`} key={r}>
                     <p>Works {r}</p>
                   </Route>
                 );
