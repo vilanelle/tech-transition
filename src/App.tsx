@@ -10,8 +10,8 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 
-const FakeComponent = () => <p>Routing works</p>;
-const FakeComponent2 = () => <p>Routing works2</p>;
+const FakeComponent = () => { return <p>Routing works</p>; };
+const FakeComponent2 = () => { return <p>Routing works2</p>; };
 
 export const App: React.FC<{}> = () => {
   return (
