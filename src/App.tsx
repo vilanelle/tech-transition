@@ -18,13 +18,13 @@ export const App: React.FC<{}> = () => {
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <Router basename={process.env.PUBLIC_URL}>
+          <Router>
             <Switch>
-              <Route exact path="/">
+              <Route exact path={`${process.env.PUBLIC_URL}/`}>
                 <HomePage />
               </Route>
-              <Route exact path="/frontend" component={FakeComponent} />
-              <Route exact path="/backend" component={FakeComponent2} />
+              <Route exact path={`${process.env.PUBLIC_URL}/frontend`} component={FakeComponent} />
+              <Route exact path={`${process.env.PUBLIC_URL}/backend`} component={FakeComponent2} />
             </Switch>
           </Router>
         </ThemeProvider>
