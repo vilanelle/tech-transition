@@ -8,6 +8,7 @@ import uxIcon from '../icons/ux_ui.svg';
 export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
 
 export type Category = {
+  id: string;
   name: string;
   text: string;
 }
@@ -24,14 +25,17 @@ export interface Profession {
 
 const categories: Category[] = [
   {
+    id: 'learn',
     name: 'learn',
     text: 'What do I learn',
   },
   {
+    id: 'jobs',
     name: 'jobs',
     text: 'Jobs',
   },
   {
+    id: 'resources',
     name: 'resources',
     text: 'Useful Resources',
   },

@@ -54,23 +54,28 @@ const getTabContent = (categoryName: String) => {
 };
 
 export const Tabs: React.FC<TabProps> = ({ categories }) => {
-  const [chosenCategory, setChosenCategory] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
   const { path, url } = useRouteMatch();
   const history = useHistory();
   const handleTabClicked = (category: Category, tabIndex: number) => {
-    setChosenCategory(tabIndex);
+    setActiveTab(tabIndex);
     history.push(`${url}/${category.name}`);
+  };
+  const syncTabWithPath = (categoryIdFromPath: string) => {
+    const selectedCategoryIndex = categories.findIndex((category) => category.id === categoryIdFromPath);
+    const index = selectedCategoryIndex === -1 ? 0 : selectedCategoryIndex;
+    setActiveTab(index);
   };
 
   return (
     <>
       <StyledCard>
-        <StyledTabs indicatorColor="primary" value={chosenCategory}>
+        <StyledTabs indicatorColor="primary" value={activeTab}>
           {categories.map((category, index) => (
             <Tab
               key={category.name}
               text={category.text}
-              chosenTab={chosenCategory}
+              chosenTab={activeTab}
               index={index}
               handleClick={(tabIndex: number) => handleTabClicked(category, tabIndex)}
             />
@@ -80,7 +85,10 @@ export const Tabs: React.FC<TabProps> = ({ categories }) => {
       <Switch>
         <Redirect exact from="/details/:professionId" to={`${url}/learn`} />
         <Route exact path={`${path}/:categoryId`}>
-          <TabPanel getTabContent={getTabContent} />
+          <TabPanel
+            getTabContent={getTabContent}
+            syncTabWithPath={syncTabWithPath}
+          />
         </Route>
       </Switch>
     </>
