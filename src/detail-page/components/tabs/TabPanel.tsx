@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import { useParams } from 'react-router-dom';
 
-interface TabPanelProps {
-  children?: React.ReactNode;
+interface Props {
+  getTabContent: (categoryId: string) => ReactElement;
 }
 
-export const TabPanel: React.FC<TabPanelProps> = ({ children }) => (
-  <div
-    role="tabpanel"
-  >
-    {children}
-  </div>
-);
+export const TabPanel: React.FC<Props> = ({ getTabContent }) => {
+  const { categoryId } = useParams<{ categoryId: string }>();
+  return (
+    <div role="tabpanel">
+      {getTabContent(categoryId)}
+    </div>
+  );
+};

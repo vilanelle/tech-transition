@@ -1,6 +1,6 @@
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
@@ -12,18 +12,13 @@ export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            {ITProfessions.map(profession => (
-              <Route path={`/details/${profession.route}`} key={profession.id}>
-                <DetailPage profession={profession} />
-              </Route>
-            ))}
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Redirect exact path="/details" to={`/details/${ITProfessions[0].route}`} />
+          <Route path="/details/:professionId" component={DetailPage} />
+        </Switch>
       </ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>

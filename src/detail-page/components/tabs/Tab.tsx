@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab as MuiTab } from '@material-ui/core';
+import { Tab as MuiTab, TabProps as MuiTabProps } from '@material-ui/core';
 import styled from 'styled-components';
 
 const StyledTab = styled(MuiTab)`
@@ -11,23 +11,27 @@ const StyledTab = styled(MuiTab)`
   }
 `;
 
-interface TabProps {
+type TabProps = {
   text: string;
   chosenTab: number;
   index: number;
-  onClick: (index: number) => void;
-}
+  handleClick: (index: number) => void;
+} & MuiTabProps;
 
-export const Tab: React.FC<TabProps> = ({
-  text,
-  chosenTab,
-  index,
-  onClick,
-}) => (
-  /* Adding className active to chosen card for creating bold text */
-  <StyledTab
-    label={text}
-    className={chosenTab === index ? 'active' : ''}
-    onClick={() => onClick(index)}
-  />
-);
+export const Tab: React.FC<TabProps> = props => {
+  const {
+    text,
+    chosenTab,
+    index,
+    handleClick,
+    ...rest
+  } = props;
+  return (
+    <StyledTab
+      {...rest}
+      label={text}
+      className={chosenTab === index ? 'active' : ''}
+      onClick={() => handleClick(index)}
+    />
+  );
+};

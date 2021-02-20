@@ -12,7 +12,7 @@ export type Category = {
   text: string;
 }
 
-export interface ProfessionInterface {
+export interface Profession {
   id: ProfessionKey;
   title: string;
   description: string;
@@ -37,7 +37,7 @@ const categories: Category[] = [
   },
 ];
 
-export const ITProfessions: ProfessionInterface[] = [
+export const ITProfessions: Profession[] = [
   {
     id: 'frontend',
     title: 'Frontend',

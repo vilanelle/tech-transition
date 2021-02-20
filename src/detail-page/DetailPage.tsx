@@ -1,14 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { MainContainer } from '../layout/components/MainContainer';
-import { ProfessionInterface } from '../data/ITProfessions';
 
 import { Tabs } from './components/tabs/Tabs';
-
-type DetailProps = {
-  profession: ProfessionInterface;
-}
+import { ITProfessions } from '../data/ITProfessions';
 
 export const TabContainer = styled('div')`
     max-width: 960px;
@@ -22,13 +19,22 @@ export const TabContainer = styled('div')`
     }
 `;
 
-export const DetailPage: React.FC<DetailProps> = ({
-  profession,
-}) => (
-  <MainContainer>
-    <div>{profession.title}</div>
-    <TabContainer>
-      <Tabs categories={profession.categories} learn="What to learn" jobs="jobs" resources="resources" />
-    </TabContainer>
-  </MainContainer>
-);
+export const DetailPage: React.FC<{}> = () => {
+  const { professionId } = useParams<{professionId: string}>();
+  const profession = ITProfessions.find(p => p.id === professionId);
+  return (
+    <>
+      {profession && (
+        <MainContainer>
+          <div>{profession.title}</div>
+          <TabContainer>
+            <Tabs
+              categories={profession.categories}
+              profession={profession}
+            />
+          </TabContainer>
+        </MainContainer>
+      )}
+    </>
+  );
+};
