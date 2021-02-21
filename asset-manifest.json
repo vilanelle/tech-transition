@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tech-transition/static/css/main.260ac067.chunk.css",
-    "main.js": "/tech-transition/static/js/main.c0f1c223.chunk.js",
-    "main.js.map": "/tech-transition/static/js/main.c0f1c223.chunk.js.map",
+    "main.js": "/tech-transition/static/js/main.f3b4a0b4.chunk.js",
+    "main.js.map": "/tech-transition/static/js/main.f3b4a0b4.chunk.js.map",
     "runtime-main.js": "/tech-transition/static/js/runtime-main.261c6a68.js",
     "runtime-main.js.map": "/tech-transition/static/js/runtime-main.261c6a68.js.map",
     "static/js/2.a12c92bc.chunk.js": "/tech-transition/static/js/2.a12c92bc.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.261c6a68.js",
     "static/js/2.a12c92bc.chunk.js",
     "static/css/main.260ac067.chunk.css",
-    "static/js/main.c0f1c223.chunk.js"
+    "static/js/main.f3b4a0b4.chunk.js"
   ]
 }
