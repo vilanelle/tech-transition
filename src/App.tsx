@@ -12,12 +12,12 @@ export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Router basename={`${process.env.PUBLIC_URL}`}>
+        <Router>
           <Switch>
             <Route exact path={`${process.env.PUBLIC_URL}`}>
               <HomePage />
             </Route>
-            <Redirect exact path="/details" to={`${process.env.PUBLIC_URL}/details/${ITProfessions[0].route}`} />
+            <Redirect exact path={`${process.env.PUBLIC_URL}/details`} to={`${process.env.PUBLIC_URL}/details/${ITProfessions[0].route}`} />
             <Route path={`${process.env.PUBLIC_URL}/details/:professionId`} component={DetailPage} />
           </Switch>
         </Router>
