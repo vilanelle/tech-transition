@@ -11,7 +11,7 @@ import { ITProfessions } from '../data/ITProfessions';
 export const HomePage: React.FC<{}> = () => {
   const history = useHistory();
   const handleClick = (route: string) => {
-    history.push(`${process.env.PUBLIC_URL}/details/${route}`);
+    history.push(`/details/${route}`);
   };
   return (
     <MainContainer>

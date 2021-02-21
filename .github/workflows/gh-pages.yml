@@ -4,7 +4,11 @@ on:
   # but only for specific branches
   push:
     branches:
-      - workflow-test-3
+      - master
+      - workflow-routing-fix
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build-test:
@@ -21,6 +25,7 @@ jobs:
       - run: npm run test
       - run: npm run lint
       - name: Deploy
+#         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
