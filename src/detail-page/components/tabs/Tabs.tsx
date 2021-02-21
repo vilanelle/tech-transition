@@ -83,8 +83,8 @@ export const Tabs: React.FC<TabProps> = ({ categories }) => {
         </StyledTabs>
       </StyledCard>
       <Switch>
-        <Redirect exact from="/details/:professionId" to={`${url}/learn`} />
-        <Route exact path={`${path}/:categoryId`}>
+        <Redirect exact from={`${process.env.PUBLIC_URL}/details/:professionId`} to={`${process.env.PUBLIC_URL}${url}/learn`} />
+        <Route exact path={`${process.env.PUBLIC_URL}${path}/:categoryId`}>
           <TabPanel
             getTabContent={getTabContent}
             syncTabWithPath={syncTabWithPath}
