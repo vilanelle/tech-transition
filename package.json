@@ -37,11 +37,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "dotenv -e .env.production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{ts,tsx}",
-    "lint-fix": "eslint src/**/*.{ts,tsx} --fix"
+    "lint-fix": "eslint src/**/*.{ts,tsx} --fix",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
