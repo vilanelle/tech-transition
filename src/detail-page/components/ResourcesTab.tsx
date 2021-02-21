@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ResourcesProps {
-  content: any;
+  content: string;
 }
 
 export const ResourcesTab: React.FC<ResourcesProps> = ({ content }) => (

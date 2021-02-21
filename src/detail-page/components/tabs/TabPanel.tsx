@@ -10,9 +10,7 @@ export const TabPanel: React.FC<Props> = ({ getTabContent, syncTabWithPath }) =>
   const { categoryId } = useParams<{ categoryId: string }>();
   useEffect(() => {
     syncTabWithPath(categoryId);
-    // eslint-disable-next-line
-  }, [categoryId]);
-
+  }, [categoryId, syncTabWithPath]);
   return (
     <div role="tabpanel">
       {getTabContent(categoryId)}

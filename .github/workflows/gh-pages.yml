@@ -4,7 +4,7 @@ on:
   # but only for specific branches
   push:
     branches:
-      - workflow-routing-fix
+      - workflow-test-3
 
 jobs:
   build-test:

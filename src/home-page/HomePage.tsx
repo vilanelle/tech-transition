@@ -13,8 +13,6 @@ export const HomePage: React.FC<{}> = () => {
   const handleClick = (route: string) => {
     history.push(`${process.env.PUBLIC_URL}/details/${route}`);
   };
-  // eslint-disable-next-line
-  console.log(`${process.env.PUBLIC_URL}`);
   return (
     <MainContainer>
       <Header />
