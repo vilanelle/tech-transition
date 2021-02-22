@@ -7,7 +7,6 @@ import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { DetailPage } from './detail-page/DetailPage';
 import { ITProfessions } from './data/ITProfessions';
-import { BackButton } from './detail-page/BackButton';
 
 export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
