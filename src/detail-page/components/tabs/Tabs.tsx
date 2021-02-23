@@ -59,7 +59,7 @@ export const Tabs: React.FC<TabProps> = ({ categories }) => {
     history.push(`${url}/${category.name}`);
   };
   const syncTabWithPath = (categoryIdFromPath: string) => {
-    const selectedCategoryIndex = categories.findIndex((category) => category.id === categoryIdFromPath);
+    const selectedCategoryIndex = categories.findIndex(category => category.id === categoryIdFromPath);
     const index = selectedCategoryIndex === -1 ? 0 : selectedCategoryIndex;
     setActiveTab(index);
   };

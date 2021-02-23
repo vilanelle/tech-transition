@@ -14,7 +14,7 @@ export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Router>
+        <Router basename={`${process.env.PUBLIC_URL}`}>
           <Switch>
             <Route exact path="/">
               <HomePage />

@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface JobProps {
-  content: any;
+  content: string;
 }
 
 export const JobsTab: React.FC<JobProps> = ({ content }) => (
