@@ -8,6 +8,8 @@ import { theme } from './layout/theme';
 import { DetailPage } from './detail-page/DetailPage';
 import { ITProfessions } from './data/ITProfessions';
 
+const DefaultDetailsPagePath = `/details/${ITProfessions[0].route}`;
+
 export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
@@ -17,7 +19,7 @@ export const App: React.FC<{}> = () => (
             <Route exact path="/">
               <HomePage />
             </Route>
-            <Redirect exact path="/details" to={`/details/${ITProfessions[0].route}`} />
+            <Redirect exact path="/details" to={DefaultDetailsPagePath} />
             <Route path="/details/:professionId" component={DetailPage} />
           </Switch>
         </Router>

@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { MainContainer } from '../layout/components/MainContainer';
-
 import { Tabs } from './components/tabs/Tabs';
+
 import { ITProfessions } from '../data/ITProfessions';
 
 export const TabContainer = styled('div')`

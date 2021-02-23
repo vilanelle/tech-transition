@@ -21,19 +21,16 @@ const StyledTabs = styled(MuiTabs)`
   }
 `;
 
-const StyledCard = styled(Card)`
+const TabsContainer = styled(Card)`
   width: 100%;
 `;
 
-/* For now TabContainer receive props from its parent container
-with categories and learn, jobs and resources content.
-Because it isn't determined how they will look like it's type is unknown.
-It should be change when it will be determined */
 interface TabProps {
   categories: Category[];
   profession: Profession;
 }
 
+/* Mock data until we determine the shape and place of tabs state */
 const tabList = {
   learn: 'What to learn',
   jobs: 'jobs',
@@ -69,7 +66,7 @@ export const Tabs: React.FC<TabProps> = ({ categories }) => {
 
   return (
     <>
-      <StyledCard>
+      <TabsContainer>
         <StyledTabs indicatorColor="primary" value={activeTab}>
           {categories.map((category, index) => (
             <Tab
@@ -81,16 +78,16 @@ export const Tabs: React.FC<TabProps> = ({ categories }) => {
             />
           ))}
         </StyledTabs>
-      </StyledCard>
-      <Switch>
-        <Redirect exact from="/details/:professionId" to={`${url}/learn`} />
-        <Route exact path={`${path}/:categoryId`}>
-          <TabPanel
-            getTabContent={getTabContent}
-            syncTabWithPath={syncTabWithPath}
-          />
-        </Route>
-      </Switch>
+        <Switch>
+          <Redirect exact from="/details/:professionId" to={`${url}/learn`} />
+          <Route exact path={`${path}/:categoryId`}>
+            <TabPanel
+              getTabContent={getTabContent}
+              syncTabWithPath={syncTabWithPath}
+            />
+          </Route>
+        </Switch>
+      </TabsContainer>
     </>
   );
 };
