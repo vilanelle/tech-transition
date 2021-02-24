@@ -8,11 +8,12 @@ import uxIcon from '../icons/ux_ui.svg';
 export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
 
 export type Category = {
+  id: string;
   name: string;
   text: string;
 }
 
-export interface ProfessionInterface {
+export interface Profession {
   id: ProfessionKey;
   title: string;
   description: string;
@@ -24,20 +25,23 @@ export interface ProfessionInterface {
 
 const categories: Category[] = [
   {
+    id: 'learn',
     name: 'learn',
     text: 'What do I learn',
   },
   {
+    id: 'jobs',
     name: 'jobs',
     text: 'Jobs',
   },
   {
+    id: 'resources',
     name: 'resources',
     text: 'Useful Resources',
   },
 ];
 
-export const ITProfessions: ProfessionInterface[] = [
+export const ITProfessions: Profession[] = [
   {
     id: 'frontend',
     title: 'Frontend',

@@ -1,6 +1,6 @@
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Redirect, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
@@ -8,20 +8,19 @@ import { theme } from './layout/theme';
 import { DetailPage } from './detail-page/DetailPage';
 import { ITProfessions } from './data/ITProfessions';
 
+const DefaultDetailsPagePath = `/details/${ITProfessions[0].route}`;
+
 export const App: React.FC<{}> = () => (
   <StylesProvider injectFirst>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Router>
+        <Router basename={`${process.env.PUBLIC_URL}`}>
           <Switch>
             <Route exact path="/">
               <HomePage />
             </Route>
-            {ITProfessions.map(profession => (
-              <Route path={`/details/${profession.route}`} key={profession.id}>
-                <DetailPage profession={profession} />
-              </Route>
-            ))}
+            <Redirect exact path="/details" to={DefaultDetailsPagePath} />
+            <Route path="/details/:professionId" component={DetailPage} />
           </Switch>
         </Router>
       </ThemeProvider>

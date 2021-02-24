@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface LearnProps {
-  content: any;
+  content: string;
 }
 
 export const LearnTab: React.FC<LearnProps> = ({ content }) => (
