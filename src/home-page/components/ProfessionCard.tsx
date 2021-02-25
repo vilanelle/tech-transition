@@ -7,7 +7,8 @@ const CategoryCardContainer = styled(Card)`
   width: 100%;
   display: flex;
   align-items: center;
-
+  cursor: pointer; 
+  
   :hover {
     opacity: 0.8;
   }
@@ -32,7 +33,7 @@ type CardProps = {
   route: string;
 };
 
-export const CategoryCard: React.FC<CardProps> = ({
+export const ProfessionCard: React.FC<CardProps> = ({
   title,
   description,
   avatarSrc,
