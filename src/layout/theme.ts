@@ -1,9 +1,32 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
 
 const breakpoints = createBreakpoints({});
+
+declare module '@material-ui/core/styles/createPalette' {
+  interface PaletteOptions {
+    professions: {
+      frontend: {
+        main: React.CSSProperties['color'];
+      };
+      backend: {
+        main: React.CSSProperties['color'];
+      };
+      uxui: {
+        main: React.CSSProperties['color'];
+      };
+      qa: {
+        main: React.CSSProperties['color'];
+      };
+      devops: {
+        main: React.CSSProperties['color'];
+      };
+      projectmanager: {
+        main: React.CSSProperties['color'];
+      };
+    };
+  }
+}
 
 export const theme = createMuiTheme({
   typography: {
@@ -28,10 +51,32 @@ export const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: purple[500],
+      main: '#725ec0',
     },
-    secondary: {
-      main: green[500],
+    text: {
+      primary: '#222222',
+      disabled: '#22222233', // Text color with opacity 30%
+    },
+    // we could add more colors later (lighter or darker)
+    professions: {
+      frontend: {
+        main: '#bee5e4',
+      },
+      backend: {
+        main: '#ff85be',
+      },
+      uxui: {
+        main: '#7ec2ff',
+      },
+      qa: {
+        main: '#fdf580',
+      },
+      devops: {
+        main: '#d99cff',
+      },
+      projectmanager: {
+        main: '#aafa87',
+      },
     },
   },
 });
