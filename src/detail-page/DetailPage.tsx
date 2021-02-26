@@ -9,13 +9,11 @@ import { ITProfessions } from '../data/ITProfessions';
 import { ProfessionCard } from '../home-page/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
-    max-width: 960px;
-    width: 80%;
-    margin: 2em auto 0;
+    width: 100%;
+    margin: 2em 0 0;
     padding-bottom: 2em;
 
     ${props => props.theme.breakpoints.down('sm')} {
-      width: 90%;
       margin-top: 1.5em;
     }
 `;
@@ -27,7 +25,6 @@ export const DetailPage: React.FC<{}> = () => {
     <>
       {profession && (
         <MainContainer>
-          <div>{profession.title}</div>
           <ProfessionCard
             key={profession.id}
             title={profession.title}
