@@ -6,6 +6,7 @@ import { MainContainer } from '../layout/components/MainContainer';
 import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
+import { ProfessionCard } from '../home-page/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
     max-width: 960px;
@@ -27,6 +28,15 @@ export const DetailPage: React.FC<{}> = () => {
       {profession && (
         <MainContainer>
           <div>{profession.title}</div>
+          <ProfessionCard
+            key={profession.id}
+            title={profession.title}
+            // TODO: change to longer profession description after
+            // adding profession data
+            description={profession.description}
+            avatarSrc={profession.icon}
+            avatarBackground={profession.color}
+          />
           <TabContainer>
             <Tabs
               categories={profession.categories}

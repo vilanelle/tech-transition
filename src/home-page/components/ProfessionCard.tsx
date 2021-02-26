@@ -21,7 +21,7 @@ const CardHeaderContainer = styled(CardHeader)`
 const AvatarContainer = styled(Avatar)<{ background: ProfessionKey }>`
   margin-right: 1em;
   background-color: ${({ background, theme }) => theme.palette.professions[background].main};
-  padding: .75em;
+  padding: .35em;
 `;
 
 type CardProps = {
@@ -29,8 +29,8 @@ type CardProps = {
   description: string;
   avatarSrc: string;
   avatarBackground: ProfessionKey;
-  clickHandler: (route: string) => void;
-  route: string;
+  clickHandler?: (route: string) => void;
+  route?: string;
 };
 
 export const ProfessionCard: React.FC<CardProps> = ({
@@ -41,7 +41,7 @@ export const ProfessionCard: React.FC<CardProps> = ({
   clickHandler,
   route,
 }) => (
-  <CategoryCardContainer onClick={() => clickHandler(route)}>
+  <CategoryCardContainer onClick={() => (clickHandler && route) ? clickHandler(route) : null}>
     <CardHeaderContainer title={title} subheader={description} />
     <AvatarContainer src={avatarSrc} background={avatarBackground} />
   </CategoryCardContainer>
