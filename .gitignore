@@ -24,5 +24,6 @@ yarn-error.log*
 
 .eslintcache
 /.vscode
+/.idea
 
-.prettierrc 
+.prettierrc
