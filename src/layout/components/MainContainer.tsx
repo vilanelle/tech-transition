@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Container } from '@material-ui/core';
 
 /* Main container with background img for all pages */
@@ -8,10 +8,20 @@ const BackgroundContainer = styled('div')`
   min-height: 100vh;
 `;
 
+const ContentContainer = styled(Container)`
+  ${({ theme }) => css`
+    padding: ${theme.spacing(2, 1)};
+
+    ${theme.breakpoints.up('md')} {
+      padding: ${theme.spacing(1, 0)};
+    }
+  `}
+`;
+
 export const MainContainer: React.FC<{}> = ({ children }) => (
   <BackgroundContainer>
-    <Container maxWidth="md">
+    <ContentContainer maxWidth="md">
       { children! }
-    </Container>
+    </ContentContainer>
   </BackgroundContainer>
 );

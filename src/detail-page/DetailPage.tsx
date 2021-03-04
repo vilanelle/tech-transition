@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { MainContainer } from '../layout/components/MainContainer';
 import { Tabs } from './components/tabs/Tabs';
@@ -9,13 +9,15 @@ import { ITProfessions } from '../data/ITProfessions';
 import { ProfessionCard } from '../home-page/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
+  ${({ theme }) => css`
     width: 100%;
-    margin: 2em 0 0;
-    padding-bottom: 2em;
+    margin: ${theme.spacing(4, 0, 0)};
+    padding-bottom: ${theme.spacing(4)}px;
 
-    ${props => props.theme.breakpoints.down('sm')} {
-      margin-top: 1.5em;
+    ${theme.breakpoints.down('sm')} {
+      margin: ${theme.spacing(3, 0, 0)};
     }
+  `}
 `;
 
 export const DetailPage: React.FC<{}> = () => {
