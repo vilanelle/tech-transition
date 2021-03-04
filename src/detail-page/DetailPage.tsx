@@ -6,7 +6,7 @@ import { MainContainer } from '../layout/components/MainContainer';
 import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
-import { ProfessionCard } from '../home-page/components/ProfessionCard';
+import { ProfessionCard } from '../shared/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
   ${({ theme }) => css`
@@ -35,6 +35,7 @@ export const DetailPage: React.FC<{}> = () => {
             description={profession.description}
             avatarSrc={profession.icon}
             avatarBackground={profession.color}
+            // isClickable={false}
           />
           <TabContainer>
             <Tabs

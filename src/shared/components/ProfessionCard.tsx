@@ -3,14 +3,13 @@ import { Card, CardHeader, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
 import { ProfessionKey } from '../../data/ITProfessions';
 
-const CategoryCardContainer = styled(Card)`
+const ProfessionCardContainer = styled(Card)<{ $isClickable: boolean }>`
   width: 100%;
   display: flex;
   align-items: center;
-  cursor: pointer; 
-  
+  cursor: ${({ $isClickable }) => ($isClickable ? 'pointer' : 'auto')};
   :hover {
-    opacity: 0.8;
+    opacity: ${({ $isClickable }) => ($isClickable ? 0.8 : 1)};
   }
 `;
 
@@ -21,28 +20,26 @@ const CardHeaderContainer = styled(CardHeader)`
 const AvatarContainer = styled(Avatar)<{ background: ProfessionKey }>`
   margin-right: 1em;
   background-color: ${({ background, theme }) => theme.palette.professions[background].main};
-  padding: .35em;
+  padding: 0.35em;
 `;
 
-type CardProps = {
+type ProfessionCardProps = {
   title: string;
   description: string;
   avatarSrc: string;
   avatarBackground: ProfessionKey;
-  clickHandler?: (route: string) => void;
-  route?: string;
+  isClickable?: boolean;
 };
 
-export const ProfessionCard: React.FC<CardProps> = ({
+export const ProfessionCard: React.FC<ProfessionCardProps> = ({
   title,
   description,
   avatarSrc,
   avatarBackground,
-  clickHandler,
-  route,
+  isClickable,
 }) => (
-  <CategoryCardContainer onClick={() => (clickHandler && route) ? clickHandler(route) : null}>
+  <ProfessionCardContainer $isClickable={isClickable !== undefined}>
     <CardHeaderContainer title={title} subheader={description} />
     <AvatarContainer src={avatarSrc} background={avatarBackground} />
-  </CategoryCardContainer>
+  </ProfessionCardContainer>
 );
