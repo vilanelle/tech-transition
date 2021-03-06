@@ -1,24 +1,20 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const DescriptionContainer = styled('div')`
-  text-align: center;
-  margin: auto;
-  width: 80%;
-  margin-top: 2em;
-
-  *:not(:last-child) {
-    margin-bottom: 1em;
-  }
-  ${props => props.theme.breakpoints.down('sm')} {
-    width: 90%;
-    margin-top: 1.5em;
-
+  ${({ theme }) => css`
+    text-align: center;
+    margin: ${theme.spacing(4, 'auto', 0)};
     *:not(:last-child) {
-        margin-bottom: .8em;
-      }
-  }
+      margin-bottom: ${theme.spacing(2)}px;
+    }
+
+    ${theme.breakpoints.down('sm')} {
+      margin-top: ${theme.spacing(3)}px;
+      width: 90%;
+    }
+  `}
 `;
 
 export const Description: React.FC<{}> = () => (

@@ -35,7 +35,6 @@ export const DetailPage: React.FC<{}> = () => {
             description={profession.description}
             avatarSrc={profession.icon}
             avatarBackground={profession.color}
-            // isClickable={false}
           />
           <TabContainer>
             <Tabs

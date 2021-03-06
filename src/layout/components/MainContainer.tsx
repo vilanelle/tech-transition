@@ -10,10 +10,11 @@ const BackgroundContainer = styled('div')`
 
 const ContentContainer = styled(Container)`
   ${({ theme }) => css`
-    padding: ${theme.spacing(2, 1)};
+    padding: ${theme.spacing(2, 0)};
+    width: 90%;
 
     ${theme.breakpoints.up('md')} {
-      padding: ${theme.spacing(1, 0)};
+      padding: ${theme.spacing(3, 0)};
     }
   `}
 `;

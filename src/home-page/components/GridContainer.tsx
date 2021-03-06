@@ -10,7 +10,6 @@ export const GridContainer = styled('div')`
     grid-gap: 2em;
 
     ${props => props.theme.breakpoints.down('sm')} {
-      width: 90%;
       margin-top: 1.5em;
     }
 `;
