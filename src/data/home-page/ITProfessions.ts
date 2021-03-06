@@ -1,17 +1,11 @@
-import backendIcon from '../icons/backend.svg';
-import devopsIcon from '../icons/devops.svg';
-import frontendIcon from '../icons/frontend.svg';
-import projectIcon from '../icons/project_manager.svg';
-import qaIcon from '../icons/qa.svg';
-import uxIcon from '../icons/ux_ui.svg';
+import backendIcon from '../../icons/backend.svg';
+import devopsIcon from '../../icons/devops.svg';
+import frontendIcon from '../../icons/frontend.svg';
+import projectIcon from '../../icons/project_manager.svg';
+import qaIcon from '../../icons/qa.svg';
+import uxIcon from '../../icons/ux_ui.svg';
 
 export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
-
-export type Category = {
-  id: string;
-  name: string;
-  text: string;
-}
 
 export interface Profession {
   id: ProfessionKey;
@@ -20,26 +14,7 @@ export interface Profession {
   color: ProfessionKey;
   icon: string;
   route: ProfessionKey;
-  categories: Category[];
 }
-
-const categories: Category[] = [
-  {
-    id: 'learn',
-    name: 'learn',
-    text: 'What do I learn',
-  },
-  {
-    id: 'jobs',
-    name: 'jobs',
-    text: 'Jobs',
-  },
-  {
-    id: 'resources',
-    name: 'resources',
-    text: 'Useful Resources',
-  },
-];
 
 export const ITProfessions: Profession[] = [
   {
@@ -50,7 +25,6 @@ export const ITProfessions: Profession[] = [
     color: 'frontend',
     icon: frontendIcon,
     route: 'frontend',
-    categories,
   },
   {
     id: 'backend',
@@ -60,7 +34,6 @@ export const ITProfessions: Profession[] = [
     color: 'backend',
     icon: backendIcon,
     route: 'backend',
-    categories,
   },
   {
     id: 'uxui',
@@ -70,7 +43,6 @@ export const ITProfessions: Profession[] = [
     color: 'uxui',
     icon: uxIcon,
     route: 'uxui',
-    categories,
   },
   {
     id: 'qa',
@@ -79,7 +51,6 @@ export const ITProfessions: Profession[] = [
     color: 'qa',
     icon: qaIcon,
     route: 'qa',
-    categories,
   },
   {
     id: 'devops',
@@ -89,7 +60,6 @@ export const ITProfessions: Profession[] = [
     color: 'devops',
     icon: devopsIcon,
     route: 'devops',
-    categories,
   },
   {
     id: 'projectmanager',
@@ -99,6 +69,5 @@ export const ITProfessions: Profession[] = [
     color: 'projectmanager',
     icon: projectIcon,
     route: 'projectmanager',
-    categories,
   },
 ];

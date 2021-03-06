@@ -6,7 +6,7 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { DetailPage } from './detail-page/DetailPage';
-import { ITProfessions } from './data/ITProfessions';
+import { ITProfessions } from './data/home-page/ITProfessions';
 
 const DefaultDetailsPagePath = `/details/${ITProfessions[0].route}`;
 

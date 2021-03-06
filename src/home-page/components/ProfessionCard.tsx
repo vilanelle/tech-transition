@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
-import { ProfessionKey } from '../../data/ITProfessions';
+import { ProfessionKey } from '../../data/home-page/ITProfessions';
 
 const CategoryCardContainer = styled(Card)`
   width: 100%;

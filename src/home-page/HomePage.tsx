@@ -6,7 +6,7 @@ import { Header } from './components/Header';
 import { Description } from './components/Description';
 import { GridContainer } from './components/GridContainer';
 import { ProfessionCard } from './components/ProfessionCard';
-import { ITProfessions } from '../data/ITProfessions';
+import { ITProfessions } from '../data/home-page/ITProfessions';
 
 export const HomePage: React.FC<{}> = () => {
   const history = useHistory();
