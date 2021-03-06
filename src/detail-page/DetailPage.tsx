@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { MainContainer } from '../layout/components/MainContainer';
 import { Tabs } from './components/tabs/Tabs';
 
-import { ITProfessions } from '../data/ITProfessions';
+import { ITProfessions } from '../data/home-page/ITProfessions';
 
 export const TabContainer = styled('div')`
     max-width: 960px;
@@ -29,8 +29,7 @@ export const DetailPage: React.FC<{}> = () => {
           <div>{profession.title}</div>
           <TabContainer>
             <Tabs
-              categories={profession.categories}
-              profession={profession}
+              professionId={professionId}
             />
           </TabContainer>
         </MainContainer>
