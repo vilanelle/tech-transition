@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/tech-transition/static/css/main.260ac067.chunk.css",
-    "main.js": "/tech-transition/static/js/main.601b42a8.chunk.js",
-    "main.js.map": "/tech-transition/static/js/main.601b42a8.chunk.js.map",
-    "runtime-main.js": "/tech-transition/static/js/runtime-main.261c6a68.js",
-    "runtime-main.js.map": "/tech-transition/static/js/runtime-main.261c6a68.js.map",
-    "static/js/2.a12c92bc.chunk.js": "/tech-transition/static/js/2.a12c92bc.chunk.js",
-    "static/js/2.a12c92bc.chunk.js.map": "/tech-transition/static/js/2.a12c92bc.chunk.js.map",
-    "static/js/3.58fd311d.chunk.js": "/tech-transition/static/js/3.58fd311d.chunk.js",
-    "static/js/3.58fd311d.chunk.js.map": "/tech-transition/static/js/3.58fd311d.chunk.js.map",
+    "main.js": "/tech-transition/static/js/main.ed16972f.chunk.js",
+    "main.js.map": "/tech-transition/static/js/main.ed16972f.chunk.js.map",
+    "runtime-main.js": "/tech-transition/static/js/runtime-main.7b520ea0.js",
+    "runtime-main.js.map": "/tech-transition/static/js/runtime-main.7b520ea0.js.map",
+    "static/js/2.05f897e2.chunk.js": "/tech-transition/static/js/2.05f897e2.chunk.js",
+    "static/js/2.05f897e2.chunk.js.map": "/tech-transition/static/js/2.05f897e2.chunk.js.map",
+    "static/js/3.6061f965.chunk.js": "/tech-transition/static/js/3.6061f965.chunk.js",
+    "static/js/3.6061f965.chunk.js.map": "/tech-transition/static/js/3.6061f965.chunk.js.map",
     "index.html": "/tech-transition/index.html",
     "static/css/main.260ac067.chunk.css.map": "/tech-transition/static/css/main.260ac067.chunk.css.map",
-    "static/js/2.a12c92bc.chunk.js.LICENSE.txt": "/tech-transition/static/js/2.a12c92bc.chunk.js.LICENSE.txt",
+    "static/js/2.05f897e2.chunk.js.LICENSE.txt": "/tech-transition/static/js/2.05f897e2.chunk.js.LICENSE.txt",
     "static/media/backend.e5dd589a.svg": "/tech-transition/static/media/backend.e5dd589a.svg",
     "static/media/devops.526c43b9.svg": "/tech-transition/static/media/devops.526c43b9.svg",
     "static/media/frontend.0cba3fe3.svg": "/tech-transition/static/media/frontend.0cba3fe3.svg",
@@ -20,9 +20,9 @@
     "static/media/ux_ui.1e1dd114.svg": "/tech-transition/static/media/ux_ui.1e1dd114.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.261c6a68.js",
-    "static/js/2.a12c92bc.chunk.js",
+    "static/js/runtime-main.7b520ea0.js",
+    "static/js/2.05f897e2.chunk.js",
     "static/css/main.260ac067.chunk.css",
-    "static/js/main.601b42a8.chunk.js"
+    "static/js/main.ed16972f.chunk.js"
   ]
 }
