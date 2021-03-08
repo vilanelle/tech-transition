@@ -3,13 +3,11 @@ import Typography from '@material-ui/core/Typography';
 import styled, { css } from 'styled-components';
 
 const HeaderTypography = styled(Typography)`
-  ${({ theme }) => css`
-    width: 80%;
-    text-align: center;
-    font-weight: bold;
-    padding-top: ${theme.spacing(3)}px;
-    margin: auto;
-  `}
+  width: 80%;
+  text-align: center;
+  font-weight: bold;
+  padding-top: ${({ theme }) => theme.spacing(3)}px;
+  margin: auto;
 `;
 
 export const Header: React.FC<{}> = () => (

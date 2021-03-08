@@ -9,15 +9,13 @@ import { ITProfessions } from '../data/ITProfessions';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
-  ${({ theme }) => css`
-    width: 100%;
-    margin: ${theme.spacing(4, 0, 0)};
-    padding-bottom: ${theme.spacing(4)}px;
-
-    ${theme.breakpoints.down('sm')} {
-      margin: ${theme.spacing(3, 0, 0)};
-    }
-  `}
+  width: 100%;
+  margin: ${({ theme }) => theme.spacing(4, 0, 0)};
+  padding-bottom: ${({ theme }) => theme.spacing(4)}px;
+  
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin: ${({ theme }) => theme.spacing(3, 0, 0)};
+  }
 `;
 
 export const DetailPage: React.FC<{}> = () => {

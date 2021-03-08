@@ -3,7 +3,7 @@ import { Card, CardHeader, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
 import { ProfessionKey } from '../../data/ITProfessions';
 
-const ProfessionCardContainer = styled(Card)<{ $isClickable: boolean }>`
+const StyledProfessionCard = styled(Card)<{ $isClickable: boolean }>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -13,11 +13,11 @@ const ProfessionCardContainer = styled(Card)<{ $isClickable: boolean }>`
   }
 `;
 
-const CardHeaderContainer = styled(CardHeader)`
+const StyledCardHeader = styled(CardHeader)`
   width: 100%;
 `;
 
-const AvatarContainer = styled(Avatar)<{ background: ProfessionKey }>`
+const StyledAvatar = styled(Avatar)<{ background: ProfessionKey }>`
   margin-right: 1em;
   background-color: ${({ background, theme }) => theme.palette.professions[background].main};
   padding: 0.35em;
@@ -36,10 +36,10 @@ export const ProfessionCard: React.FC<ProfessionCardProps> = ({
   description,
   avatarSrc,
   avatarBackground,
-  isClickable,
+  isClickable = false,
 }) => (
-  <ProfessionCardContainer $isClickable={isClickable !== undefined}>
-    <CardHeaderContainer title={title} subheader={description} />
-    <AvatarContainer src={avatarSrc} background={avatarBackground} />
-  </ProfessionCardContainer>
+  <StyledProfessionCard $isClickable={isClickable}>
+    <StyledCardHeader title={title} subheader={description} />
+    <StyledAvatar src={avatarSrc} background={avatarBackground} />
+  </StyledProfessionCard>
 );

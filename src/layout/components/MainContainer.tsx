@@ -9,14 +9,12 @@ const BackgroundContainer = styled('div')`
 `;
 
 const ContentContainer = styled(Container)`
-  ${({ theme }) => css`
-    padding: ${theme.spacing(2, 0)};
-    width: 90%;
+  padding: ${({ theme }) => theme.spacing(2, 0)};
+  width: 90%;
 
-    ${theme.breakpoints.up('md')} {
-      padding: ${theme.spacing(3, 0)};
-    }
-  `}
+  ${({ theme }) => theme.breakpoints.up('md')} {
+    padding: ${({ theme }) => theme.spacing(3, 0)};
+  }
 `;
 
 export const MainContainer: React.FC<{}> = ({ children }) => (

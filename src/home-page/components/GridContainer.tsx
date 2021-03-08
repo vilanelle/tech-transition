@@ -9,7 +9,7 @@ export const GridContainer = styled('div')`
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     grid-gap: 2em;
 
-    ${props => props.theme.breakpoints.down('sm')} {
+    ${({ theme }) => theme.breakpoints.down('sm')} {
       margin-top: 1.5em;
     }
 `;

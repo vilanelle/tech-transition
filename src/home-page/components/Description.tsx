@@ -3,18 +3,16 @@ import Typography from '@material-ui/core/Typography';
 import styled, { css } from 'styled-components';
 
 const DescriptionContainer = styled('div')`
-  ${({ theme }) => css`
-    text-align: center;
-    margin: ${theme.spacing(4, 'auto', 0)};
-    *:not(:last-child) {
-      margin-bottom: ${theme.spacing(2)}px;
-    }
+  text-align: center;
+  margin: ${({ theme }) => theme.spacing(4, 'auto', 0)};
+  *:not(:last-child) {
+    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  }
 
-    ${theme.breakpoints.down('sm')} {
-      margin-top: ${theme.spacing(3)}px;
-      width: 90%;
-    }
-  `}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-top: ${({ theme }) => theme.spacing(3)}px;
+    width: 90%;
+  }
 `;
 
 export const Description: React.FC<{}> = () => (
