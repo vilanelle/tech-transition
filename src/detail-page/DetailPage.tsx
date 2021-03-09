@@ -7,6 +7,7 @@ import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
 import { BackButton } from './BackButton';
+import { NoMatch404 } from '../home-page/NoMatch404';
 
 export const TabContainer = styled('div')`
     max-width: 960px;
@@ -25,7 +26,7 @@ export const DetailPage: React.FC<{}> = () => {
   const profession = ITProfessions.find(p => p.id === professionId);
   return (
     <>
-      {profession && (
+      {profession ? (
         <MainContainer>
           <div>{profession.title}</div>
           <TabContainer>
@@ -36,7 +37,7 @@ export const DetailPage: React.FC<{}> = () => {
             />
           </TabContainer>
         </MainContainer>
-      )}
+      ) : <NoMatch404 />}
     </>
   );
 };
