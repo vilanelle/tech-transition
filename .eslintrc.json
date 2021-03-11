@@ -8,12 +8,7 @@
     "browser": true,
     "jest/globals": true
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "jest"
-  ],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "jest"],
   "extends": [
     "airbnb",
     "plugin:@typescript-eslint/recommended",
@@ -37,6 +32,8 @@
         "code": 200
       }
     ],
+    "quotes": [2, "single"],
+
     "linebreak-style": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
@@ -58,9 +55,7 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".tsx"
-        ]
+        "extensions": [".tsx"]
       }
     ],
     "react/jsx-indent": "off",
