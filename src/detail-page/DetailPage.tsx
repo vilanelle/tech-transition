@@ -7,6 +7,7 @@ import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
+import { DemoChart } from '../home-page/components/DemoChart';
 
 export const TabContainer = styled('div')`
   width: 100%;
@@ -40,6 +41,7 @@ export const DetailPage: React.FC<{}> = () => {
               profession={profession}
             />
           </TabContainer>
+          <DemoChart />
         </MainContainer>
       )}
     </>
