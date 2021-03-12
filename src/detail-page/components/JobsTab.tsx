@@ -1,4 +1,5 @@
 import React from 'react';
+import FetchJobContent from './FetchJobContent';
 
 interface JobProps {
   content: string;
@@ -6,7 +7,7 @@ interface JobProps {
 
 export const JobsTab: React.FC<JobProps> = ({ content }) => (
   <div>
-    {/* Should be replace with actual content */}
+    <FetchJobContent />
     {content}
   </div>
 );
