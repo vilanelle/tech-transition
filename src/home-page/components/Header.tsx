@@ -1,12 +1,12 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const HeaderTypography = styled(Typography)`
   width: 80%;
   text-align: center;
   font-weight: bold;
-  padding-top: 2em;
+  padding-top: ${({ theme }) => theme.spacing(3)}px;
   margin: auto;
 `;
 
