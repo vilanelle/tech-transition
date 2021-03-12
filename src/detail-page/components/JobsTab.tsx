@@ -1,5 +1,5 @@
 import React from 'react';
-import FetchJobContent from './FetchJobContent';
+import FetchJobContent from './TabJobCotet/FetchJobContent';
 
 interface JobProps {
   content: string;
