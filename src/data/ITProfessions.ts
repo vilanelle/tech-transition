@@ -22,6 +22,12 @@ export interface Profession {
   route: ProfessionKey;
   categories: Category[];
 }
+export interface Job {
+  company: string;
+  title: string;
+  description: string;
+  url: string;
+}
 
 const categories: Category[] = [
   {
