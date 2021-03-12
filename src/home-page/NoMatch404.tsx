@@ -32,7 +32,7 @@ export const NoMatch404: React.FC<{}> = () => {
   return (
     <MainContainer>
       <NoMatchTypography>
-        <HeaderTypography variant="h1">404</HeaderTypography>
+        <HeaderTypography variant="h4">404</HeaderTypography>
         <SubtitleTypography variant="subtitle1">It looks like you&apos;re lost.</SubtitleTypography>
         <StyledButton variant="contained" color="secondary" onClick={() => history.push('/')}>Go to the homepage</StyledButton>
       </NoMatchTypography>
