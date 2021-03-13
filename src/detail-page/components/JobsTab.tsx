@@ -1,5 +1,5 @@
 import React from 'react';
-import FetchJobContent from './TabJobCotet/FetchJobContent';
+import FetchJobContent from './TabJobContent/FetchJobContent';
 
 interface JobProps {
   content: string;
@@ -8,6 +8,5 @@ interface JobProps {
 export const JobsTab: React.FC<JobProps> = ({ content }) => (
   <div>
     <FetchJobContent />
-    {content}
   </div>
 );

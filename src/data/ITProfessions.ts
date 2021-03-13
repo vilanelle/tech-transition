@@ -27,6 +27,7 @@ export interface Job {
   title: string;
   description: string;
   url: string;
+  id: string;
 }
 
 const categories: Category[] = [

@@ -4,12 +4,13 @@ import { Job } from '../../../data/ITProfessions';
 
 const FetchJobElement = (props: { job: Job }) => {
   const { job } = props;
+
   return (
-    <div>
+    <li key={job.id}>
       <h4>{job.company} {job.title} </h4>
-      <p>{job.description}</p>
+      {job.description}
       <Button variant="contained" href={job.url}>See More</Button>
-    </div>
+    </li>
   );
 };
 
