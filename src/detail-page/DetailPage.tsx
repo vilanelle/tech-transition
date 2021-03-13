@@ -6,6 +6,7 @@ import { MainContainer } from '../layout/components/MainContainer';
 import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
+import { BackButton } from './BackButton';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
@@ -19,7 +20,7 @@ export const TabContainer = styled('div')`
 `;
 
 export const DetailPage: React.FC<{}> = () => {
-  const { professionId } = useParams<{professionId: string}>();
+  const { professionId } = useParams<{ professionId: string }>();
   const profession = ITProfessions.find(p => p.id === professionId);
   return (
     <>
@@ -35,6 +36,7 @@ export const DetailPage: React.FC<{}> = () => {
             avatarBackground={profession.color}
           />
           <TabContainer>
+            <BackButton />
             <Tabs
               categories={profession.categories}
               profession={profession}
