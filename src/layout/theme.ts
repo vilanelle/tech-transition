@@ -53,10 +53,14 @@ export const theme = createMuiTheme({
     primary: {
       main: '#725ec0',
     },
+    secondary: {
+      main: '#725FC0',
+    },
     text: {
       primary: '#222222',
       disabled: '#22222233', // Text color with opacity 30%
     },
+
     // we could add more colors later (lighter or darker)
     professions: {
       frontend: {

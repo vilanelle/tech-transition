@@ -8,5 +8,6 @@ interface JobProps {
 export const JobsTab: React.FC<JobProps> = ({ content }) => (
   <div>
     <FetchJobContent />
+    {content}
   </div>
 );

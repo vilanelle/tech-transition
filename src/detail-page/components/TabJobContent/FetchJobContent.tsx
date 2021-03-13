@@ -1,10 +1,31 @@
 import { Button, CircularProgress, Input } from '@material-ui/core';
+import styled from 'styled-components';
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Job } from '../../../data/ITProfessions';
 import FetchJobElement from './FetchJobElement';
 import hiringPicture from '../../../icons/hiring.svg';
 
+const SearchInput = styled(Input)`
+width: 250px;
+height:35px;
+border: 1px #CFCFCF solid;
+margin:   ${props => props.theme.spacing(5)}px 0 ${props => props.theme.spacing(1.5)}px ${props => props.theme.spacing(1.5)}px ;
+padding-left: 0 ${props => props.theme.spacing(1.5)}px 
+`;
+
+const SearchButton = styled(Button)`
+width: 100px;
+margin:  ${props => props.theme.spacing(1.5)}px;
+display:block;
+color:white;
+`;
+
+const HiringImage = styled('object')`
+width: 250px;
+float:right;
+margin: 0 ${props => props.theme.spacing(10)}px ${props => props.theme.spacing(10)}px 0;
+`;
 const FetchJobContent: React.FC = () => {
   const [jobPosts, setJobPosts] = React.useState([]);
   const [role, setRole] = React.useState('');
@@ -37,10 +58,10 @@ const FetchJobContent: React.FC = () => {
 
   return (
     <>
-      <Input placeholder="Job title" value={role} onChange={handleChangeRole} />
-      <Input placeholder="City" value={city} onChange={handleChangeCity} />
-      <Button variant="contained" onClick={handleChangeJobs}>Search</Button>
-      <object data={hiringPicture} width="300" height="300"> </object>
+      <SearchInput type="search" placeholder="Job title" value={role} disableUnderline onChange={handleChangeRole} />
+      <SearchInput placeholder="City" disableUnderline value={city} onChange={handleChangeCity} />
+      <SearchButton color="secondary" variant="contained" onClick={handleChangeJobs}>Search</SearchButton>
+      <HiringImage data={hiringPicture} />
       {fetching ? <CircularProgress /> : null}
       <ul>
         {jobPosts.map((job) => <FetchJobElement job={job} />)}
