@@ -26,6 +26,12 @@ width: 250px;
 float:right;
 margin: 0 ${props => props.theme.spacing(10)}px ${props => props.theme.spacing(10)}px 0;
 `;
+
+const SearchSpinner = styled('div')`
+margin: ${props => props.theme.spacing(5)}px auto;
+width:50%;
+`;
+
 const FetchJobContent: React.FC = () => {
   const [jobPosts, setJobPosts] = React.useState([]);
   const [role, setRole] = React.useState('');
@@ -62,7 +68,7 @@ const FetchJobContent: React.FC = () => {
       <SearchInput placeholder="City" disableUnderline value={city} onChange={handleChangeCity} />
       <SearchButton color="secondary" variant="contained" onClick={handleChangeJobs}>Search</SearchButton>
       <HiringImage data={hiringPicture} />
-      {fetching ? <CircularProgress /> : null}
+      {fetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
       <ul>
         {jobPosts.map((job) => <FetchJobElement job={job} />)}
       </ul>
