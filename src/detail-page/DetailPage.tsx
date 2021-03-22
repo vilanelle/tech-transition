@@ -38,7 +38,6 @@ export const DetailPage: React.FC<{}> = () => {
           <TabContainer>
             <Tabs categories={profession.categories} profession={profession} />
           </TabContainer>
-          <DemoChart />
         </MainContainer>
       )}
     </>
