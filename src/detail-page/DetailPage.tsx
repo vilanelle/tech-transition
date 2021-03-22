@@ -7,21 +7,21 @@ import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
-import { DemoChart } from '../home-page/components/DemoChart';
+import { DemoChart } from './components/DemoChart';
 
 export const TabContainer = styled('div')`
   width: 100%;
   margin: ${({ theme }) => theme.spacing(4, 0, 0)};
   padding-bottom: ${({ theme }) => theme.spacing(4)}px;
-  
+
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin: ${({ theme }) => theme.spacing(3, 0, 0)};
   }
 `;
 
 export const DetailPage: React.FC<{}> = () => {
-  const { professionId } = useParams<{professionId: string}>();
-  const profession = ITProfessions.find(p => p.id === professionId);
+  const { professionId } = useParams<{ professionId: string }>();
+  const profession = ITProfessions.find((p) => p.id === professionId);
   return (
     <>
       {profession && (
@@ -36,10 +36,7 @@ export const DetailPage: React.FC<{}> = () => {
             avatarBackground={profession.color}
           />
           <TabContainer>
-            <Tabs
-              categories={profession.categories}
-              profession={profession}
-            />
+            <Tabs categories={profession.categories} profession={profession} />
           </TabContainer>
           <DemoChart />
         </MainContainer>
