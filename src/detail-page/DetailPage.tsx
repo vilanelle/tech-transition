@@ -13,7 +13,7 @@ export const TabContainer = styled('div')`
   width: 100%;
   margin: ${({ theme }) => theme.spacing(4, 0, 0)};
   padding-bottom: ${({ theme }) => theme.spacing(4)}px;
-  
+
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin: ${({ theme }) => theme.spacing(3, 0, 0)};
   }
