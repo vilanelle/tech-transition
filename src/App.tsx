@@ -7,7 +7,7 @@ import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { DetailPage } from './detail-page/DetailPage';
 import { ITProfessions } from './data/ITProfessions';
-import { NoMatch404 } from './home-page/NoMatch404';
+import { NoMatch404 } from './layout/components/NoMatch404';
 
 const DefaultDetailsPagePath = `/details/${ITProfessions[0].route}`;
 

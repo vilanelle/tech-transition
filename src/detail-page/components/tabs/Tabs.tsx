@@ -9,7 +9,6 @@ import { Category, Profession } from '../../../data/ITProfessions';
 import { JobsTab } from '../JobsTab';
 import { LearnTab } from '../LearnTab';
 import { ResourcesTab } from '../ResourcesTab';
-import { NoMatch404 } from '../../../home-page/NoMatch404';
 
 const StyledTabs = styled(MuiTabs)`
   border-bottom: 1px solid

@@ -7,7 +7,7 @@ import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
 import { BackButton } from './BackButton';
-import { NoMatch404 } from '../home-page/NoMatch404';
+import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
