@@ -11,4 +11,9 @@ export const categories: Category[] = [
     name: 'jobs',
     text: 'Jobs',
   },
+  {
+    id: 'resources',
+    name: 'resources',
+    text: 'Useful Resources',
+  },
 ];

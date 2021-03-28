@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ITProfessions } from '../data/home-page/ITProfessions';
@@ -18,29 +18,38 @@ export const TabContainer = styled('div')`
 `;
 
 export const DetailPage: React.FC<{}> = () => {
+  const [detailDescription, setDetailDescription] = useState<string>('');
+
   const { professionId } = useParams<{ professionId: string }>();
   const profession = ITProfessions.find(p => p.id === professionId);
+
+  useEffect(() => {
+    if (professionId) {
+      import(`../data/detail-page/Descriptions/${professionId}Description.ts`)
+        .then(response => setDetailDescription(response.description));
+    }
+  }, [professionId]);
+
   return (
     <>
-      {profession && (
+      {(profession && detailDescription) ? (
         <MainContainer>
+          <BackButton />
           <ProfessionCard
             key={profession.id}
             title={profession.title}
-            // TODO: change to longer profession description after
-            // adding profession data
-            description={profession.description}
+            description={detailDescription}
             avatarSrc={profession.icon}
             avatarBackground={profession.color}
           />
           <TabContainer>
-            <BackButton />
             <Tabs
               professionId={professionId}
             />
           </TabContainer>
         </MainContainer>
-      )}
+      )
+        : null}
     </>
   );
 };
