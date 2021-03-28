@@ -24,7 +24,7 @@ declare module '@material-ui/core/styles/createPalette' {
       projectmanager: {
         main: React.CSSProperties['color'];
       };
-    },
+    };
   }
 }
 
