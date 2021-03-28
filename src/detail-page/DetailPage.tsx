@@ -1,33 +1,40 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { ITProfessions } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
+import { ProfessionCard } from '../shared/components/ProfessionCard';
+import { BackButton } from './BackButton';
 import { Tabs } from './components/tabs/Tabs';
 
-import { ITProfessions } from '../data/home-page/ITProfessions';
-
 export const TabContainer = styled('div')`
-    max-width: 960px;
-    width: 80%;
-    margin: 2em auto 0;
-    padding-bottom: 2em;
+  width: 100%;
+  margin: ${({ theme }) => theme.spacing(4, 0, 0)};
+  padding-bottom: ${({ theme }) => theme.spacing(4)}px;
 
-    ${props => props.theme.breakpoints.down('sm')} {
-      width: 90%;
-      margin-top: 1.5em;
-    }
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin: ${({ theme }) => theme.spacing(3, 0, 0)};
+  }
 `;
 
 export const DetailPage: React.FC<{}> = () => {
-  const { professionId } = useParams<{professionId: string}>();
+  const { professionId } = useParams<{ professionId: string }>();
   const profession = ITProfessions.find(p => p.id === professionId);
   return (
     <>
       {profession && (
         <MainContainer>
-          <div>{profession.title}</div>
+          <ProfessionCard
+            key={profession.id}
+            title={profession.title}
+            // TODO: change to longer profession description after
+            // adding profession data
+            description={profession.description}
+            avatarSrc={profession.icon}
+            avatarBackground={profession.color}
+          />
           <TabContainer>
+            <BackButton />
             <Tabs
               professionId={professionId}
             />
