@@ -8,6 +8,7 @@ import { Tabs } from './components/tabs/Tabs';
 import { ITProfessions } from '../data/ITProfessions';
 import { BackButton } from './BackButton';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
+import { FrontendLearnChart } from './components/FrontendLearnChart';
 
 export const TabContainer = styled('div')`
   width: 100%;
@@ -18,6 +19,15 @@ export const TabContainer = styled('div')`
     margin: ${({ theme }) => theme.spacing(3, 0, 0)};
   }
 `;
+
+const PROFESSION_CHARTS = {
+  frontend: <FrontendLearnChart />,
+  backend: null,
+  uxui: null,
+  qa: null,
+  devops: null,
+  projectmanager: null,
+};
 
 export const DetailPage: React.FC<{}> = () => {
   const { professionId } = useParams<{ professionId: string }>();
@@ -37,10 +47,8 @@ export const DetailPage: React.FC<{}> = () => {
           />
           <TabContainer>
             <BackButton />
-            <Tabs
-              categories={profession.categories}
-              profession={profession}
-            />
+            <Tabs categories={profession.categories} profession={profession} />
+            {PROFESSION_CHARTS[profession.id]}
           </TabContainer>
         </MainContainer>
       )}
