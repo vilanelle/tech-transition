@@ -7,6 +7,7 @@ import { HomePage } from './home-page/HomePage';
 import { theme } from './layout/theme';
 import { DetailPage } from './detail-page/DetailPage';
 import { ITProfessions } from './data/ITProfessions';
+import { NoMatch404 } from './layout/components/NoMatch404';
 
 const DefaultDetailsPagePath = `/details/${ITProfessions[0].route}`;
 
@@ -21,6 +22,7 @@ export const App: React.FC<{}> = () => (
             </Route>
             <Redirect exact path="/details" to={DefaultDetailsPagePath} />
             <Route path="/details/:professionId" component={DetailPage} />
+            <Route path="*" component={NoMatch404} />
           </Switch>
         </Router>
       </ThemeProvider>

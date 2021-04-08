@@ -7,6 +7,7 @@ import { Tabs } from './components/tabs/Tabs';
 
 import { ITProfessions } from '../data/ITProfessions';
 import { BackButton } from './BackButton';
+import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
 
 export const TabContainer = styled('div')`
@@ -24,7 +25,7 @@ export const DetailPage: React.FC<{}> = () => {
   const profession = ITProfessions.find(p => p.id === professionId);
   return (
     <>
-      {profession && (
+      {profession ? (
         <MainContainer>
           <ProfessionCard
             key={profession.id}
@@ -43,7 +44,7 @@ export const DetailPage: React.FC<{}> = () => {
             />
           </TabContainer>
         </MainContainer>
-      )}
+      ) : <NoMatch404 />}
     </>
   );
 };

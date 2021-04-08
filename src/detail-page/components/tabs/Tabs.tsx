@@ -46,7 +46,7 @@ const getTabContent = (categoryName: String) => {
     case 'resources':
       return <ResourcesTab content={tabList.resources} />;
     default:
-      throw new Error('Wrong category name!');
+      return <Redirect to="/404" />;
   }
 };
 
