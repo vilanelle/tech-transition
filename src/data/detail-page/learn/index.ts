@@ -4,4 +4,3 @@ export * from './frontend';
 export * from './projectManager';
 export * from './qa';
 export * from './uxUi';
-
