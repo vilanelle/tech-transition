@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ITProfessions } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
@@ -20,13 +20,16 @@ export const TabContainer = styled('div')`
 export const DetailPage: React.FC<{}> = () => {
   const [detailDescription, setDetailDescription] = useState<string>('');
 
+  const history = useHistory();
+
   const { professionId } = useParams<{ professionId: string }>();
   const profession = ITProfessions.find(p => p.id === professionId);
 
   useEffect(() => {
     if (professionId) {
-      import(`../data/detail-page/Descriptions/${professionId}Description.ts`)
-        .then(response => setDetailDescription(response.description));
+      import(`../data/detail-page/descriptions/${professionId}.ts`)
+        .then(response => setDetailDescription(response[professionId]))
+        .catch(() => history.push('/'));
     }
   }, [professionId]);
 

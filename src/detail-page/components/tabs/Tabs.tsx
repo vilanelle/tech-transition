@@ -1,15 +1,13 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { Redirect, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Redirect, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
-
-import { TabPanel } from './TabPanel';
-import { Tab } from './Tab';
+import { Category } from '../../../data/detail-page/Tabs/tabsInterfaces';
 import { JobsTab } from '../JobsTab';
 import { LearnTab } from '../LearnTab';
 import { ResourcesTab } from '../ResourcesTab';
-
-import { Category } from '../../../data/detail-page/Tabs/TabsInterfaces';
+import { Tab } from './Tab';
+import { TabPanel } from './TabPanel';
 
 const StyledTabs = styled(MuiTabs)`
   border-bottom: 1px solid
@@ -59,8 +57,9 @@ export const Tabs: React.FC<TabProps> = ({ professionId }) => {
 
   useEffect(() => {
     if (categories.length === 0) {
-        import(`../../../data/detail-page/Tabs/${professionId}Tabs.ts`)
-          .then(response => setCategories(response.categories));
+        import(`../../../data/detail-page/tabs/${professionId}.ts`)
+          .then(response => setCategories(response[professionId]))
+          .catch(() => history.push('/'));
     }
   }, [categories, professionId]);
 
