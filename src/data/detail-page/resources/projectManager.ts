@@ -1,6 +1,6 @@
 import { Resources } from './resourcesInterfaces';
 
-export const projectmanager: Resources = {
+export const projectManager: Resources = {
   books: [],
   courses: [],
   platforms: [],

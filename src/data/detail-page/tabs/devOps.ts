@@ -1,6 +1,6 @@
 import { Category } from './tabsInterfaces';
 
-export const projectmanager: Category[] = [
+export const devOps: Category[] = [
   {
     id: 'learn',
     name: 'learn',

@@ -1,6 +1,6 @@
 import { Learn } from './LearnInterfaces';
 
-export const devops: Learn = {
+export const devOps: Learn = {
   list: [
     'one or two programming languages that let you comfortably automatize processes and tasks (e. g.  Python, Ruby, C, C++, Rust, Go, Node)',
     'advanced operating system concepts - ex. networking, process managing, sockets',

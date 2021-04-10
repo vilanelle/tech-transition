@@ -1,6 +1,6 @@
 import { Learn } from './LearnInterfaces';
 
-export const projectmanager: Learn = {
+export const projectManager: Learn = {
   list: [],
   roadMapLink: '',
 };

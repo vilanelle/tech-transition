@@ -1,6 +1,6 @@
 import { Category } from './tabsInterfaces';
 
-export const devops: Category[] = [
+export const uxUi: Category[] = [
   {
     id: 'learn',
     name: 'learn',

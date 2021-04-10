@@ -1,8 +1,10 @@
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
-import { Category } from '../../../data/detail-page/Tabs/tabsInterfaces';
+import { backend, devOps, frontend, projectManager, qa, uxUi } from '../../../data/detail-page/tabs/index';
+import { Category } from '../../../data/detail-page/tabs/tabsInterfaces';
+import { ProfessionKey } from '../../../data/home-page/ITProfessions';
 import { JobsTab } from '../JobsTab';
 import { LearnTab } from '../LearnTab';
 import { ResourcesTab } from '../ResourcesTab';
@@ -25,7 +27,7 @@ const TabsContainer = styled(Card)`
 `;
 
 interface TabProps {
-  professionId: string;
+  professionId: ProfessionKey;
 }
 
 /* Mock data until we determine the shape and place of tabs state */
@@ -48,20 +50,31 @@ const getTabContent = (categoryName: String) => {
   }
 };
 
+const getData = (professionId: ProfessionKey) => {
+  switch (professionId) {
+    case 'frontend':
+      return frontend;
+    case 'backend':
+      return backend;
+    case 'devops':
+      return devOps;
+    case 'projectmanager':
+      return projectManager;
+    case 'qa':
+      return qa;
+    case 'uxui':
+      return uxUi;
+    default:
+      return [];
+  }
+};
+
 export const Tabs: React.FC<TabProps> = ({ professionId }) => {
   const [activeTab, setActiveTab] = useState(0);
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<Category[]>(getData(professionId));
 
   const { path, url } = useRouteMatch();
   const history = useHistory();
-
-  useEffect(() => {
-    if (categories.length === 0) {
-        import(`../../../data/detail-page/tabs/${professionId}.ts`)
-          .then(response => setCategories(response[professionId]))
-          .catch(() => history.push('/'));
-    }
-  }, [categories, professionId]);
 
   const handleTabClicked = (category: Category, tabIndex: number) => {
     setActiveTab(tabIndex);

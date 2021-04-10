@@ -1,5 +1,5 @@
 import { Chart } from './chartInterfaces';
 
-export const projectmanager: Chart = {
+export const uxUi: Chart = {
   hasChart: false,
 };

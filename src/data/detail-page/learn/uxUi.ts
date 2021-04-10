@@ -1,6 +1,6 @@
 import { Learn } from './LearnInterfaces';
 
-export const uxui: Learn = {
+export const uxUi: Learn = {
   list: [
     ' Understand all the design directions (a visual designer, a user experience designer,  a product designer, a graphic designer, UX researcher) and choose the right one for you.',
     'Learn the fundamentals of UX design.',

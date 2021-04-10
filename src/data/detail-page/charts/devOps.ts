@@ -1,5 +1,5 @@
 import { Chart } from './chartInterfaces';
 
-export const devops: Chart = {
+export const devOps: Chart = {
   hasChart: false,
 };

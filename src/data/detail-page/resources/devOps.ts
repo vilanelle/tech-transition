@@ -1,6 +1,6 @@
 import { Resources } from './resourcesInterfaces';
 
-export const devops: Resources = {
+export const devOps: Resources = {
   books: [],
   courses: [],
   platforms: [],

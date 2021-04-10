@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { ITProfessions } from '../data/home-page/ITProfessions';
+import { backend, devOps, frontend, projectManager, qa, uxUi } from '../data/detail-page/descriptions/index';
+import { ITProfessions, ProfessionKey } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
 import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
@@ -18,21 +19,32 @@ export const TabContainer = styled('div')`
   }
 `;
 
+const getData = (professionId: ProfessionKey) => {
+  switch (professionId) {
+    case 'frontend':
+      return frontend;
+    case 'backend':
+      return backend;
+    case 'devops':
+      return devOps;
+    case 'projectmanager':
+      return projectManager;
+    case 'qa':
+      return qa;
+    case 'uxui':
+      return uxUi;
+    default:
+      return '';
+  }
+};
+
 export const DetailPage: React.FC<{}> = () => {
-  const [detailDescription, setDetailDescription] = useState<string>('');
+  const { professionId } = useParams<{ professionId: ProfessionKey }>();
+  const [detailDescription, setDetailDescription] = useState<string>(getData(professionId));
 
   const history = useHistory();
 
-  const { professionId } = useParams<{ professionId: string }>();
   const profession = ITProfessions.find(p => p.id === professionId);
-
-  useEffect(() => {
-    if (professionId) {
-      import(`../data/detail-page/descriptions/${professionId}.ts`)
-        .then(response => setDetailDescription(response[professionId]))
-        .catch(() => history.push('/'));
-    }
-  }, [professionId]);
 
   return (
     <>

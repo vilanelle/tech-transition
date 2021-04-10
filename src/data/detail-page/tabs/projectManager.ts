@@ -1,6 +1,6 @@
 import { Category } from './tabsInterfaces';
 
-export const uxui: Category[] = [
+export const projectManager: Category[] = [
   {
     id: 'learn',
     name: 'learn',

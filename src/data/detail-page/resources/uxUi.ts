@@ -1,6 +1,6 @@
 import { Resources } from './resourcesInterfaces';
 
-export const uxui: Resources = {
+export const uxUi: Resources = {
   books: [],
   courses: [],
   platforms: [],
