@@ -1,12 +1,13 @@
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
-import React from 'react';
-import { Redirect, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
-import { HomePage } from './home-page/HomePage';
-import { theme } from './layout/theme';
-import { DetailPage } from './detail-page/DetailPage';
+import React from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import { ITProfessions } from './data/home-page/ITProfessions';
+import { DetailPage } from './detail-page/DetailPage';
+import { HomePage } from './home-page/HomePage';
+import { NoMatch404 } from './layout/components/NoMatch404';
+import { theme } from './layout/theme';
 
 const DefaultDetailsPagePath = `/details/${ITProfessions[0].route}`;
 
@@ -21,6 +22,7 @@ export const App: React.FC<{}> = () => (
             </Route>
             <Redirect exact path="/details" to={DefaultDetailsPagePath} />
             <Route path="/details/:professionId" component={DetailPage} />
+            <Route path="*" component={NoMatch404} />
           </Switch>
         </Router>
       </ThemeProvider>

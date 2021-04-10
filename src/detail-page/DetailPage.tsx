@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ITProfessions } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
+import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
 import { BackButton } from './BackButton';
 import { Tabs } from './components/tabs/Tabs';
@@ -51,8 +52,7 @@ export const DetailPage: React.FC<{}> = () => {
             />
           </TabContainer>
         </MainContainer>
-      )
-        : null}
+      ) : <NoMatch404 />}
     </>
   );
 };
