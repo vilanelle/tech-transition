@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { backend, devOps, frontend, projectManager, qa, uxUi } from '../data/detail-page/descriptions/index';
@@ -40,7 +40,7 @@ const getData = (professionId: ProfessionKey) => {
 
 export const DetailPage: React.FC<{}> = () => {
   const { professionId } = useParams<{ professionId: ProfessionKey }>();
-  const [detailDescription, setDetailDescription] = useState<string>(getData(professionId));
+  const detailDescription = getData(professionId);
 
   const history = useHistory();
 

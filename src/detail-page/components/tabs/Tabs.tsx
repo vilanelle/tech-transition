@@ -71,7 +71,7 @@ const getData = (professionId: ProfessionKey) => {
 
 export const Tabs: React.FC<TabProps> = ({ professionId }) => {
   const [activeTab, setActiveTab] = useState(0);
-  const [categories, setCategories] = useState<Category[]>(getData(professionId));
+  const categories = getData(professionId);
 
   const { path, url } = useRouteMatch();
   const history = useHistory();
