@@ -1,13 +1,8 @@
 import React from 'react';
-import FetchJobContent from './TabJobContent/FetchJobContent';
+import JobTab from './TabJobContent/JobTab';
 
-interface JobProps {
-  content: string;
-}
-
-export const JobsTab: React.FC<JobProps> = ({ content }) => (
+export const JobsTab: React.FC = () => (
   <div>
-    <FetchJobContent />
-    {content}
+    <JobTab />
   </div>
 );

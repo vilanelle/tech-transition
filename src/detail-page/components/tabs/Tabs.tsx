@@ -40,7 +40,7 @@ const tabList = {
 const getTabContent = (categoryName: String) => {
   switch (categoryName) {
     case 'jobs':
-      return <JobsTab content={tabList.jobs} />;
+      return <JobsTab />;
     case 'learn':
       return <LearnTab content={tabList.learn} />;
     case 'resources':
