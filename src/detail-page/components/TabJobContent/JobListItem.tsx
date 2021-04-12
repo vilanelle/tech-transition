@@ -11,7 +11,6 @@ const JobListItem: React.FC<Props> = ({ job }) => {
     <li key={job.id}>
       <h4>{job.company} {job.title} </h4>
       {job.description}
-      {console.log(job)}
       <Button variant="contained" href={job.url}>See More</Button>
     </li>
   );

@@ -31,20 +31,21 @@ const SearchSpinner = styled('div')`
   margin: ${props => props.theme.spacing(5)}px auto;
   width: 50%;
 `;
-
 const JobTab: React.FC = () => {
   const [role, setRole] = React.useState('');
   const [city, setCity] = React.useState('');
-  const URL = `https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`;
-  const { jobPosts, isFetching } = useFetchJobs(URL);
+  const [url, setUrl] = React.useState('');
   const handleChangeRole = React.useCallback(e => setRole(e.target.value), []);
   const handleChangeCity = React.useCallback(e => setCity(e.target.value), []);
-
+  const { jobPosts, isFetching } = useFetchJobs(url);
+  const handleChangeJob = () => {
+    setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
+  };
   return (
     <>
       <SearchInput type="search" placeholder="Job title" value={role} disableUnderline onChange={handleChangeRole} />
       <SearchInput placeholder="City" disableUnderline value={city} onChange={handleChangeCity} />
-      <SearchButton color="secondary" variant="contained" onClick={useFetchJobs(URL)}>Search</SearchButton>
+      <SearchButton color="secondary" variant="contained" onClick={handleChangeJob}>Search</SearchButton>
       <HiringImage data={hiringPicture} />
       {isFetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
       <ul>
