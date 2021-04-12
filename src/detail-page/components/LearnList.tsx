@@ -18,6 +18,12 @@ const StyledDiv = styled('div')`
 const StyledButton = styled(Button)`
     border-radius: 0;
     font-weight: bold;
+    text-transform: none;
+    border: 2px solid ${props => props.theme.palette.primary.main};
+
+    &:hover {
+        border: 2px solid ${props => props.theme.palette.primary.main};
+    }
 `;
 
 const StyledList = styled('ul')`
@@ -31,6 +37,10 @@ const StyledLi = styled('li')`
     margin: .8rem 0;
     font-size: .95rem;
     position: relative;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
 
     &::before {
         content: '';
