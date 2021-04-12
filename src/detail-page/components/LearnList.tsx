@@ -54,7 +54,7 @@ export const LearnList: React.FC<LearnListProps> = ({ professionId }) => {
       </StyledList>
       {data.roadMapLink
       && (
-        <StyledButton variant="outlined" color="primary">
+        <StyledButton variant="outlined" color="primary" href={data.roadMapLink}>
           Go to developer roadmap
         </StyledButton>
       )}
