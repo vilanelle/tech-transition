@@ -1,14 +1,10 @@
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
-import React, { useState } from 'react';
-import { Redirect, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
+import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { availableCategories } from '../../../data/detail-page/tabs/availableCategories';
-import { backend, devOps, frontend, projectManager, qa, uxUi } from '../../../data/detail-page/tabs/index';
-import { Category } from '../../../data/detail-page/tabs/tabsInterfaces';
 import { ProfessionKey } from '../../../data/home-page/ITProfessions';
-import { JobsTab } from '../JobsTab';
-import { LearnTab } from '../LearnTab';
-import { ResourcesTab } from '../ResourcesTab';
+import { useTabData } from '../../hooks/useTabData';
 import { Tab } from './Tab';
 import { TabPanel } from './TabPanel';
 
@@ -31,61 +27,8 @@ interface TabProps {
   professionId: ProfessionKey;
 }
 
-/* Mock data until we determine the shape and place of tabs state */
-const tabList = {
-  learn: 'What to learn',
-  jobs: 'jobs',
-  resources: 'resources',
-};
-
-const getTabContent = (categoryName: String) => {
-  switch (categoryName) {
-    case 'jobs':
-      return <JobsTab content={tabList.jobs} />;
-    case 'learn':
-      return <LearnTab content={tabList.learn} />;
-    case 'resources':
-      return <ResourcesTab content={tabList.resources} />;
-    default:
-      return <Redirect to="/404" />;
-  }
-};
-
-const getData = (professionId: ProfessionKey) => {
-  switch (professionId) {
-    case 'frontend':
-      return frontend;
-    case 'backend':
-      return backend;
-    case 'devops':
-      return devOps;
-    case 'projectmanager':
-      return projectManager;
-    case 'qa':
-      return qa;
-    case 'uxui':
-      return uxUi;
-    default:
-      return [];
-  }
-};
-
 export const Tabs: React.FC<TabProps> = ({ professionId }) => {
-  const [activeTab, setActiveTab] = useState(0);
-  const categories = getData(professionId);
-
-  const { path, url } = useRouteMatch();
-  const history = useHistory();
-
-  const handleTabClicked = (category: Category, tabIndex: number) => {
-    setActiveTab(tabIndex);
-    history.push(`${url}/${category.name}`);
-  };
-  const syncTabWithPath = (categoryIdFromPath: string) => {
-    const selectedCategoryIndex = categories.findIndex(category => category === categoryIdFromPath);
-    const index = selectedCategoryIndex === -1 ? 0 : selectedCategoryIndex;
-    setActiveTab(index);
-  };
+  const { activeTab, categories, url, path, handleTabClicked, syncTabWithPath, getTabContent } = useTabData(professionId);
 
   return (
     <>
