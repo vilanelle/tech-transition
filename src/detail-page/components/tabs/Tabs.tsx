@@ -2,6 +2,7 @@ import { Card, Tabs as MuiTabs } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Redirect, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
+import { availableCategories } from '../../../data/detail-page/tabs/availableCategories';
 import { backend, devOps, frontend, projectManager, qa, uxUi } from '../../../data/detail-page/tabs/index';
 import { Category } from '../../../data/detail-page/tabs/tabsInterfaces';
 import { ProfessionKey } from '../../../data/home-page/ITProfessions';
@@ -81,7 +82,7 @@ export const Tabs: React.FC<TabProps> = ({ professionId }) => {
     history.push(`${url}/${category.name}`);
   };
   const syncTabWithPath = (categoryIdFromPath: string) => {
-    const selectedCategoryIndex = categories.findIndex(category => category.id === categoryIdFromPath);
+    const selectedCategoryIndex = categories.findIndex(category => category === categoryIdFromPath);
     const index = selectedCategoryIndex === -1 ? 0 : selectedCategoryIndex;
     setActiveTab(index);
   };
@@ -94,11 +95,11 @@ export const Tabs: React.FC<TabProps> = ({ professionId }) => {
           <StyledTabs indicatorColor="primary" value={activeTab}>
             {categories.map((category, index) => (
               <Tab
-                key={category.name}
-                text={category.text}
+                key={availableCategories[category].name}
+                text={availableCategories[category].text}
                 chosenTab={activeTab}
                 index={index}
-                handleClick={(tabIndex: number) => handleTabClicked(category, tabIndex)}
+                handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex)}
               />
             ))}
           </StyledTabs>
