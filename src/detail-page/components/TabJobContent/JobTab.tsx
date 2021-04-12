@@ -38,16 +38,22 @@ const JobTab: React.FC = () => {
   const handleChangeRole = React.useCallback(e => setRole(e.target.value), []);
   const handleChangeCity = React.useCallback(e => setCity(e.target.value), []);
   const { jobPosts, isFetching } = useFetchJobs(url);
-  const handleChangeJob = () => {
-    setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
-  };
+
   return (
     <>
       <SearchInput type="search" placeholder="Job title" value={role} disableUnderline onChange={handleChangeRole} />
       <SearchInput placeholder="City" disableUnderline value={city} onChange={handleChangeCity} />
-      <SearchButton color="secondary" variant="contained" onClick={handleChangeJob}>Search</SearchButton>
+      <SearchButton
+        color="secondary"
+        variant="contained"
+        onClick={() => {
+          setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
+        }}
+      >
+        Search
+      </SearchButton>
       <HiringImage data={hiringPicture} />
-      {isFetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
+      { isFetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
       <ul>
         {jobPosts.map((job: Job) => <JobListItem job={job} key={job.id} />)}
       </ul>
