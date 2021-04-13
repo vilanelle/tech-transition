@@ -1,7 +1,7 @@
+import { Avatar, Card, CardHeader } from '@material-ui/core';
 import React from 'react';
-import { Card, CardHeader, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
-import { ProfessionKey } from '../../data/ITProfessions';
+import { ProfessionKey } from '../../data/home-page/ITProfessions';
 
 const StyledProfessionCard = styled(Card)<{ $isClickable: boolean }>`
   width: 100%;

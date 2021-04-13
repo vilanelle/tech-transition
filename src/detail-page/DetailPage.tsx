@@ -1,14 +1,13 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-
+import { useHistory, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { backend, devOps, frontend, projectManager, qa, uxUi } from '../data/detail-page/descriptions/index';
+import { ITProfessions, ProfessionKey } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
-import { Tabs } from './components/tabs/Tabs';
-
-import { ITProfessions } from '../data/ITProfessions';
-import { BackButton } from './BackButton';
 import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
+import { BackButton } from './BackButton';
+import { Tabs } from './components/tabs/Tabs';
 
 export const TabContainer = styled('div')`
   width: 100%;
@@ -20,27 +19,48 @@ export const TabContainer = styled('div')`
   }
 `;
 
+const getData = (professionId: ProfessionKey) => {
+  switch (professionId) {
+    case 'frontend':
+      return frontend;
+    case 'backend':
+      return backend;
+    case 'devops':
+      return devOps;
+    case 'projectmanager':
+      return projectManager;
+    case 'qa':
+      return qa;
+    case 'uxui':
+      return uxUi;
+    default:
+      return '';
+  }
+};
+
 export const DetailPage: React.FC<{}> = () => {
-  const { professionId } = useParams<{ professionId: string }>();
+  const { professionId } = useParams<{ professionId: ProfessionKey }>();
+  const detailDescription = getData(professionId);
+
+  const history = useHistory();
+
   const profession = ITProfessions.find(p => p.id === professionId);
+
   return (
     <>
-      {profession ? (
+      {(profession && detailDescription) ? (
         <MainContainer>
+          <BackButton />
           <ProfessionCard
             key={profession.id}
             title={profession.title}
-            // TODO: change to longer profession description after
-            // adding profession data
-            description={profession.description}
+            description={detailDescription}
             avatarSrc={profession.icon}
             avatarBackground={profession.color}
           />
           <TabContainer>
-            <BackButton />
             <Tabs
-              categories={profession.categories}
-              profession={profession}
+              professionId={professionId}
             />
           </TabContainer>
         </MainContainer>
