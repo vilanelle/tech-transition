@@ -1,6 +1,6 @@
-import { categoriesModel } from './tabsInterfaces';
+import { CategoriesModel } from './tabsInterfaces';
 
-export const availableCategories: categoriesModel = {
+export const availableCategories: CategoriesModel = {
   learn: {
     id: 'learn',
     name: 'learn',

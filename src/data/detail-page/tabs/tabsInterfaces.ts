@@ -1,11 +1,11 @@
 export interface Category {
-    id: categoryId;
+    id: CategoryId;
     name: string;
     text: string;
 }
 
-export type categoryId = 'learn' | 'jobs' | 'resources'
+export type CategoryId = 'learn' | 'jobs' | 'resources'
 
-export type categoriesModel = {
-    [key in categoryId]: Category
+export type CategoriesModel = {
+    [key in CategoryId]: Category
 }

@@ -1,3 +1,3 @@
-import { categoryId } from './tabsInterfaces';
+import { CategoryId } from './tabsInterfaces';
 
-export const uxUi: categoryId[] = ['learn', 'jobs', 'resources'];
+export const uxUi: CategoryId[] = ['learn', 'jobs', 'resources'];

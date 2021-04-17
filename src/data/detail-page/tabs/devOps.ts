@@ -1,3 +1,3 @@
-import { categoryId } from './tabsInterfaces';
+import { CategoryId } from './tabsInterfaces';
 
-export const devOps: categoryId[] = ['learn', 'jobs', 'resources'];
+export const devOps: CategoryId[] = ['learn', 'jobs', 'resources'];
