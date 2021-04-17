@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProfessionKey } from '../../data/home-page/ITProfessions';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
 
 interface ResourcesProps {
-  professionId: ProfessionKey;
+  professionId: ProfessionId;
 }
 
 export const ResourcesTab: React.FC<ResourcesProps> = ({ professionId }) => (

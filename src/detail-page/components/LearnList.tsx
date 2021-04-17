@@ -1,11 +1,12 @@
 import Button from '@material-ui/core/Button';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import React from 'react';
 import styled from 'styled-components';
-import { ProfessionKey } from '../../data/home-page/ITProfessions';
-import { getData } from '../hooks/useLearnList';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
+import { capitalizeFirst, getData } from './LearnList.helpers';
 
 interface LearnListProps {
-    professionId: ProfessionKey;
+    professionId: ProfessionId;
   }
 
 const StyledDiv = styled('div')`
@@ -20,6 +21,7 @@ const StyledButton = styled(Button)`
     font-weight: bold;
     text-transform: none;
     border: 2px solid ${props => props.theme.palette.primary.main};
+    margin-bottom: 1rem;
 
     &:hover {
         border: 2px solid ${props => props.theme.palette.primary.main};
@@ -30,28 +32,28 @@ const StyledList = styled('ul')`
     list-style: none;
     margin-top: 0;
     margin-bottom: 1rem;
-    padding-left: 1.5rem;
+    padding-left: 0;
 `;
 
 const StyledLi = styled('li')`
-    margin: .8rem 0;
-    font-size: .95rem;
-    position: relative;
+    display: flex;
+    line-height: 1.2;
 
-    &::first-letter {
-        text-transform: uppercase;
+    &:not(:first-child) {
+      margin: .8rem 0;
     }
 
-    &::before {
-        content: '';
-        width: .4rem;
-        height: .4rem;
-        border-radius: 50%;
-        background-color: ${props => props.theme.palette.primary.main};
-        position: absolute;
-        left: -1.5rem;
-        transform: translateY(6px)
+    p {
+      margin: 0;
+      font-size: .95rem;
     }
+`;
+
+const Bullet = styled(FiberManualRecordIcon)`
+    width: .6rem;
+    padding: 0 .5rem;
+    font-size: 1rem;
+    transform: translateY(1.5px);
 `;
 
 export const LearnList: React.FC<LearnListProps> = ({ professionId }) => {
@@ -60,7 +62,11 @@ export const LearnList: React.FC<LearnListProps> = ({ professionId }) => {
     <StyledDiv>
       <StyledList>
         {data.list.map((item, index) => (
-          <StyledLi key={item}>{item}</StyledLi>))}
+          <StyledLi key={index}>
+            <Bullet color="primary" />
+            <p>{capitalizeFirst(item)}</p>
+          </StyledLi>
+        ))}
       </StyledList>
       {data.roadMapLink
       && (

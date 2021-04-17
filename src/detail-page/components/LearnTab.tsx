@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ProfessionKey } from '../../data/home-page/ITProfessions';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
 import { LearnList } from './LearnList';
 
 const TabContainer = styled('div')`
@@ -8,11 +8,11 @@ const TabContainer = styled('div')`
   grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   grid-gap: 2em;
   padding: 1.5em;
-  min-height: 50vh;
+  width: 100%;
 `;
 
 interface LearnProps {
-  professionId: ProfessionKey;
+  professionId: ProfessionId;
 }
 
 export const LearnTab: React.FC<LearnProps> = ({ professionId }) => (

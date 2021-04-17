@@ -1,8 +1,8 @@
 import { backend, devOps, frontend, projectManager, qa, uxUi } from '../../data/detail-page/learn/index';
 import { Learn } from '../../data/detail-page/learn/LearnInterfaces';
-import { ProfessionKey } from '../../data/home-page/ITProfessions';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
 
-export const getData = (professionId: ProfessionKey): Learn => {
+export const getData = (professionId: ProfessionId): Learn => {
   switch (professionId) {
     case 'frontend':
       return frontend;
@@ -20,3 +20,5 @@ export const getData = (professionId: ProfessionKey): Learn => {
       return {} as Learn;
   }
 };
+
+export const capitalizeFirst = (text: string): string => text[0].toUpperCase() + text.substring(1);

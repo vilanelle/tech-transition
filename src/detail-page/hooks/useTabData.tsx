@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Redirect, useHistory, useRouteMatch } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { backend, devOps, frontend, projectManager, qa, uxUi } from '../../data/detail-page/tabs/index';
 import { Category } from '../../data/detail-page/tabs/tabsInterfaces';
-import { ProfessionKey } from '../../data/home-page/ITProfessions';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
 import { JobsTab } from '../components/JobsTab';
 import { LearnTab } from '../components/LearnTab';
 import { ResourcesTab } from '../components/ResourcesTab';
 
-const getData = (professionId: ProfessionKey) => {
+const getData = (professionId: ProfessionId) => {
   switch (professionId) {
     case 'frontend':
       return frontend;
@@ -26,11 +26,10 @@ const getData = (professionId: ProfessionKey) => {
   }
 };
 
-export const useTabData = (professionId: ProfessionKey) => {
+export const useTabData = (professionId: ProfessionId) => {
   const [activeTab, setActiveTab] = useState(0);
   const categories = getData(professionId);
 
-  const { path, url } = useRouteMatch();
   const history = useHistory();
 
   const getTabContent = (categoryName: String) => {
@@ -46,7 +45,7 @@ export const useTabData = (professionId: ProfessionKey) => {
     }
   };
 
-  const handleTabClicked = (category: Category, tabIndex: number) => {
+  const handleTabClicked = (category: Category, tabIndex: number, url: string) => {
     setActiveTab(tabIndex);
     history.push(`${url}/${category.name}`);
   };
@@ -56,5 +55,5 @@ export const useTabData = (professionId: ProfessionKey) => {
     setActiveTab(index);
   };
 
-  return { activeTab, categories, url, path, history, handleTabClicked, syncTabWithPath, getTabContent };
+  return { activeTab, categories, handleTabClicked, syncTabWithPath, getTabContent };
 };
