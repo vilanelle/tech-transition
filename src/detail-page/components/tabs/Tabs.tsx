@@ -1,9 +1,9 @@
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
 import { availableCategories } from '../../../data/detail-page/tabs/availableCategories';
-import { ProfessionKey } from '../../../data/home-page/ITProfessions';
+import { ProfessionId } from '../../../data/home-page/ITProfessions';
 import { useTabData } from '../../hooks/useTabData';
 import { Tab } from './Tab';
 import { TabPanel } from './TabPanel';
@@ -24,11 +24,13 @@ const TabsContainer = styled(Card)`
 `;
 
 interface TabProps {
-  professionId: ProfessionKey;
+  professionId: ProfessionId;
 }
 
 export const Tabs: React.FC<TabProps> = ({ professionId }) => {
-  const { activeTab, categories, url, path, handleTabClicked, syncTabWithPath, getTabContent } = useTabData(professionId);
+  const { activeTab, categories, handleTabClicked, syncTabWithPath, getTabContent } = useTabData(professionId);
+
+  const { path, url } = useRouteMatch();
 
   return (
     <>
@@ -42,7 +44,7 @@ export const Tabs: React.FC<TabProps> = ({ professionId }) => {
                 text={availableCategories[category].text}
                 chosenTab={activeTab}
                 index={index}
-                handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex)}
+                handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex, url)}
               />
             ))}
           </StyledTabs>
