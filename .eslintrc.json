@@ -8,7 +8,12 @@
     "browser": true,
     "jest/globals": true
   },
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "jest"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "jest"
+  ],
   "extends": [
     "airbnb",
     "plugin:@typescript-eslint/recommended",
@@ -16,7 +21,10 @@
   ],
   "overrides": [
     {
-      "files": ["**/setupTests.ts", "**/*.test.{ts,tsx}"],
+      "files": [
+        "**/setupTests.ts",
+        "**/*.test.{ts,tsx}"
+      ],
       "rules": {
         "react/jsx-boolean-value": "off",
         "import/no-extraneous-dependencies": "off",
@@ -32,14 +40,22 @@
         "code": 200
       }
     ],
-    "quotes": [2, "single"],
-
+    "quotes": [
+      2,
+      "single"
+    ],
     "linebreak-style": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "no-confusing-arrow": "off",
-    "arrow-parens": ["warn", "as-needed"],
-    "arrow-body-style": ["warn", "as-needed"],
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
+    "arrow-body-style": [
+      "warn",
+      "as-needed"
+    ],
     "no-unused-expressions": [
       "warn",
       {
@@ -55,7 +71,9 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [".tsx"]
+        "extensions": [
+          ".tsx"
+        ]
       }
     ],
     "react/jsx-indent": "off",
@@ -63,16 +81,23 @@
     "indent": [
       "error",
       2,
-      { "SwitchCase": 1 }
+      {
+        "SwitchCase": 1
+      }
     ],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/no-array-index-key": "off",
     "react/jsx-curly-brace-presence": "warn",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-    "@typescript-eslint/ban-types": ["off"]
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    "@typescript-eslint/ban-types": [
+      "off"
+    ]
   }
 }
