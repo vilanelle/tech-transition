@@ -9,8 +9,9 @@ interface Props {
 }
 
 const StyledDiv = styled('div')`
-    min-height: 62vh;
-    display: flex;
+  min-height: 62vh;
+  display: flex;
+  padding: ${({ theme }) => theme.spacing(3, 2)};
 `;
 
 export const TabPanel: React.FC<Props> = ({ getTabContent, syncTabWithPath }) => {

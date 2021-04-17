@@ -1,16 +1,10 @@
-interface Resource {
-    title: string;
-    description: string;
-    url: string;
- }
+export type ResourcesType = 'books' | 'courses' | 'platforms' | 'tools' | 'communities' | 'portalsAndPodcasts' | 'games' | 'varia';
 
-export interface Resources {
-    books: Resource[];
-    courses: Resource[];
-    platforms: Resource[];
-    tools: Resource[];
-    communities: Resource[];
-    portalsAndPodcasts: Resource[];
-    games: Resource[];
-    varia: Resource[];
+export interface Resource {
+  title: string;
+  description: string | null;
+  url: string;
+  id: string;
 }
+
+export type Resources = Record<ResourcesType, Resource[]>;
