@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Typography } from '@material-ui/core';
 import styled from 'styled-components';
-import Job from '../../../data/Jobs';
+import { Job } from '../../../data/Jobs';
 
 const JobListElement = styled('li')`
   display: flex;
@@ -28,7 +28,7 @@ interface Props {
   job: Job;
 }
 
-const JobListItem: React.FC<Props> = ({ job }) => {
+export const JobListItem: React.FC<Props> = ({ job }) => {
   return (
 
     <JobListElement key={job.id}>
@@ -42,5 +42,3 @@ const JobListItem: React.FC<Props> = ({ job }) => {
 
   );
 };
-
-export default JobListItem;

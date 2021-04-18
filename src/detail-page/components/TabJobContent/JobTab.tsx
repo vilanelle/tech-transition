@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Button, CircularProgress, Input } from '@material-ui/core';
-import JobListItem from './JobListItem';
-import useFetchJobs from './useFetchJobs';
-import Job from '../../../data/Jobs';
+import { JobListItem } from './JobListItem';
+import { useFetchJobs } from './useFetchJobs';
+import { Job } from '../../../data/Jobs';
 import hiringPicture from '../../../icons/hiring.svg';
 
 const SearchInput = styled(Input)`
@@ -24,7 +24,6 @@ const SearchButton = styled(Button)`
 const HiringImage = styled('object')`
   width: 250px;
   float: right;
-  margin: 0 ${props => props.theme.spacing(10)}px ${props => props.theme.spacing(10)}px 0;
 `;
 
 const SearchSpinner = styled('div')`
@@ -38,19 +37,37 @@ const JobList = styled('ul')`
 const JobTab: React.FC = () => {
   const [role, setRole] = React.useState('');
   const [city, setCity] = React.useState('');
-  const [emptySearch, setEmptySearch] = React.useState('');
   const [url, setUrl] = React.useState('');
   const handleChangeRole = React.useCallback(e => setRole(e.target.value), []);
   const handleChangeCity = React.useCallback(e => setCity(e.target.value), []);
-  const { jobPosts, isFetching } = useFetchJobs(url);
+  /* eslint-disable prefer-const */
+  let { jobPosts, isFetching } = useFetchJobs(url);
 
   const handleSearch = () => {
+    jobPosts = [];
     setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
   };
   return (
     <>
-      <SearchInput type="search" placeholder="Job title" value={role} disableUnderline onChange={handleChangeRole} />
-      <SearchInput placeholder="City" disableUnderline value={city} onChange={handleChangeCity} />
+      <SearchInput
+        type="search"
+        placeholder="Job title"
+        value={role}
+        disableUnderline
+        onChange={handleChangeRole}
+        onKeyPress={(ev) => {
+          ev.key === 'Enter' ? handleSearch() : null;
+        }}
+      />
+      <SearchInput
+        placeholder="City"
+        disableUnderline
+        value={city}
+        onChange={handleChangeCity}
+        onKeyPress={(ev) => {
+          ev.key === 'Enter' ? handleSearch() : null;
+        }}
+      />
       <SearchButton
         color="secondary"
         variant="contained"
@@ -63,7 +80,6 @@ const JobTab: React.FC = () => {
       <JobList>
         {jobPosts.map((job: Job) => <JobListItem job={job} key={job.id} />)}
       </JobList>
-      <p>{emptySearch}</p>
     </>
   );
 };

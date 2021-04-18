@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Job from '../../../data/Jobs';
+import { Job } from '../../../data/Jobs';
 
-const useFetchJobs = (url: string) => {
+export const useFetchJobs = (url: string) => {
   const [isFetching, setIsFetching] = useState(false);
   const [jobPosts, setJobPosts] = useState<Job[]>([]);
 
@@ -20,5 +20,3 @@ const useFetchJobs = (url: string) => {
 
   return { isFetching, jobPosts };
 };
-
-export default useFetchJobs;
