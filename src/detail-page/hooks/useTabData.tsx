@@ -26,7 +26,17 @@ const getData = (professionId: ProfessionId): CategoryId[] => {
   }
 };
 
-export const useTabData = (professionId: ProfessionId) => {
+export interface UseTabDataValue {
+  activeTab: number;
+  categories: CategoryId[];
+  url: string;
+  path: string;
+  handleTabClicked: (category: Category, tabIndex: number) => void;
+  syncTabWithPath: (categoryIdFromPath: CategoryId) => void;
+  getTabContent: (categoryName: CategoryId) => JSX.Element;
+}
+
+export const useTabData = (professionId: ProfessionId): UseTabDataValue => {
   const { path, url } = useRouteMatch();
 
   const [activeTab, setActiveTab] = useState(0);
