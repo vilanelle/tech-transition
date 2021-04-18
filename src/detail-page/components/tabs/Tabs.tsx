@@ -1,6 +1,6 @@
 import { Card, Tabs as MuiTabs } from '@material-ui/core';
 import React from 'react';
-import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { availableCategories } from '../../../data/detail-page/tabs/availableCategories';
 import { ProfessionId } from '../../../data/home-page/ITProfessions';
@@ -28,9 +28,7 @@ interface TabProps {
 }
 
 export const Tabs: React.FC<TabProps> = ({ professionId }) => {
-  const { activeTab, categories, handleTabClicked, syncTabWithPath, getTabContent } = useTabData(professionId);
-
-  const { path, url } = useRouteMatch();
+  const { activeTab, categories, url, path, handleTabClicked, syncTabWithPath, getTabContent } = useTabData(professionId);
 
   return (
     <>
@@ -44,7 +42,7 @@ export const Tabs: React.FC<TabProps> = ({ professionId }) => {
                 text={availableCategories[category].text}
                 chosenTab={activeTab}
                 index={index}
-                handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex, url)}
+                handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex)}
               />
             ))}
           </StyledTabs>

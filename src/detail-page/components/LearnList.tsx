@@ -38,15 +38,12 @@ const StyledList = styled('ul')`
 const StyledLi = styled('li')`
     display: flex;
     line-height: 1.2;
+    margin: 0 0 .8rem;
+`;
 
-    &:not(:first-child) {
-      margin: .8rem 0;
-    }
-
-    p {
-      margin: 0;
-      font-size: .95rem;
-    }
+const Text = styled('p')`
+  margin: 0;
+  font-size: .95rem;
 `;
 
 const Bullet = styled(FiberManualRecordIcon)`
@@ -62,9 +59,10 @@ export const LearnList: React.FC<LearnListProps> = ({ professionId }) => {
     <StyledDiv>
       <StyledList>
         {data.list.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key
           <StyledLi key={index}>
             <Bullet color="primary" />
-            <p>{capitalizeFirst(item)}</p>
+            <Text>{capitalizeFirst(item)}</Text>
           </StyledLi>
         ))}
       </StyledList>
