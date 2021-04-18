@@ -5,15 +5,15 @@ import projectIcon from '../../icons/project_manager.svg';
 import qaIcon from '../../icons/qa.svg';
 import uxIcon from '../../icons/ux_ui.svg';
 
-export type ProfessionKey = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
+export type ProfessionId = 'frontend' | 'backend' | 'uxui' | 'qa' | 'devops' | 'projectmanager';
 
 export interface Profession {
-  id: ProfessionKey;
+  id: ProfessionId;
   title: string;
   description: string;
-  color: ProfessionKey;
+  color: ProfessionId;
   icon: string;
-  route: ProfessionKey;
+  route: ProfessionId;
 }
 
 export const ITProfessions: Profession[] = [

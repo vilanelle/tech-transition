@@ -1,19 +1,26 @@
 import React, { ReactElement, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { CategoryId } from '../../../data/detail-page/tabs/tabsInterfaces';
 
 interface Props {
-  getTabContent: (categoryId: string) => ReactElement;
-  syncTabWithPath: (categoryId: string) => void;
+  getTabContent: (categoryId: CategoryId) => ReactElement;
+  syncTabWithPath: (categoryId: CategoryId) => void;
 }
 
+const StyledDiv = styled('div')`
+    min-height: 62vh;
+    display: flex;
+`;
+
 export const TabPanel: React.FC<Props> = ({ getTabContent, syncTabWithPath }) => {
-  const { categoryId } = useParams<{ categoryId: string }>();
+  const { categoryId } = useParams<{ categoryId: CategoryId }>();
   useEffect(() => {
     syncTabWithPath(categoryId);
   }, [categoryId, syncTabWithPath]);
   return (
-    <div role="tabpanel">
+    <StyledDiv role="tabpanel">
       {getTabContent(categoryId)}
-    </div>
+    </StyledDiv>
   );
 };

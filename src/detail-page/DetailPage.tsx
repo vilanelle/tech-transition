@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { backend, devOps, frontend, projectManager, qa, uxUi } from '../data/detail-page/descriptions/index';
-import { ITProfessions, ProfessionKey } from '../data/home-page/ITProfessions';
+import { ITProfessions, ProfessionId } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
 import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
@@ -12,14 +12,13 @@ import { Tabs } from './components/tabs/Tabs';
 export const TabContainer = styled('div')`
   width: 100%;
   margin: ${({ theme }) => theme.spacing(4, 0, 0)};
-  padding-bottom: ${({ theme }) => theme.spacing(4)}px;
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin: ${({ theme }) => theme.spacing(3, 0, 0)};
   }
 `;
 
-const getData = (professionId: ProfessionKey) => {
+const getData = (professionId: ProfessionId): string => {
   switch (professionId) {
     case 'frontend':
       return frontend;
@@ -39,7 +38,7 @@ const getData = (professionId: ProfessionKey) => {
 };
 
 export const DetailPage: React.FC<{}> = () => {
-  const { professionId } = useParams<{ professionId: ProfessionKey }>();
+  const { professionId } = useParams<{ professionId: ProfessionId }>();
   const detailDescription = getData(professionId);
 
   const history = useHistory();
