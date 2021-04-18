@@ -11,7 +11,7 @@ const SearchInput = styled(Input)`
   height: 35px;
   border: 1px #CFCFCF solid;
   margin: ${props => props.theme.spacing(5)}px 0 ${props => props.theme.spacing(1.5)}px ${props => props.theme.spacing(1.5)}px ;
-  padding-left: 0 ${props => props.theme.spacing(1.5)}px 
+  padding-left: ${props => props.theme.spacing(1.5)}px 
 `;
 
 const SearchButton = styled(Button)`
@@ -31,14 +31,22 @@ const SearchSpinner = styled('div')`
   margin: ${props => props.theme.spacing(5)}px auto;
   width: 50%;
 `;
+
+const JobList = styled('ul')`
+  padding:0;
+`;
 const JobTab: React.FC = () => {
   const [role, setRole] = React.useState('');
   const [city, setCity] = React.useState('');
+  const [emptySearch, setEmptySearch] = React.useState('');
   const [url, setUrl] = React.useState('');
   const handleChangeRole = React.useCallback(e => setRole(e.target.value), []);
   const handleChangeCity = React.useCallback(e => setCity(e.target.value), []);
   const { jobPosts, isFetching } = useFetchJobs(url);
 
+  const handleSearch = () => {
+    setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
+  };
   return (
     <>
       <SearchInput type="search" placeholder="Job title" value={role} disableUnderline onChange={handleChangeRole} />
@@ -46,17 +54,16 @@ const JobTab: React.FC = () => {
       <SearchButton
         color="secondary"
         variant="contained"
-        onClick={() => {
-          setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
-        }}
+        onClick={handleSearch}
       >
         Search
       </SearchButton>
-      <HiringImage data={hiringPicture} />
+      {jobPosts.length > 0 ? null : <HiringImage data={hiringPicture} />}
       { isFetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
-      <ul>
+      <JobList>
         {jobPosts.map((job: Job) => <JobListItem job={job} key={job.id} />)}
-      </ul>
+      </JobList>
+      <p>{emptySearch}</p>
     </>
   );
 };

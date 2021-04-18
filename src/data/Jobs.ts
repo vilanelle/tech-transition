@@ -4,4 +4,4 @@ export default interface Job {
   description: string;
   url: string;
   id: string;
-}
+};
