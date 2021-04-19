@@ -1,12 +1,12 @@
 import React from 'react';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
 
 interface JobProps {
-  content: string;
+  professionId: ProfessionId;
 }
 
-export const JobsTab: React.FC<JobProps> = ({ content }) => (
+export const JobsTab: React.FC<JobProps> = ({ professionId }) => (
   <div>
     {/* Should be replace with actual content */}
-    {content}
   </div>
 );

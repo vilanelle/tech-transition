@@ -1,19 +1,18 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-
+import { useHistory, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { backend, devOps, frontend, projectManager, qa, uxUi } from '../data/detail-page/descriptions/index';
+import { ITProfessions, ProfessionId } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
-import { Tabs } from './components/tabs/Tabs';
-
-import { ITProfessions } from '../data/ITProfessions';
-import { BackButton } from './BackButton';
+import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
 import { FrontendLearnChart } from './components/FrontendLearnChart';
+import { BackButton } from './BackButton';
+import { Tabs } from './components/tabs/Tabs';
 
 export const TabContainer = styled('div')`
   width: 100%;
   margin: ${({ theme }) => theme.spacing(4, 0, 0)};
-  padding-bottom: ${({ theme }) => theme.spacing(4)}px;
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin: ${({ theme }) => theme.spacing(3, 0, 0)};
@@ -27,31 +26,55 @@ const PROFESSION_CHARTS = {
   qa: null,
   devops: null,
   projectmanager: null,
+}
+
+const getData = (professionId: ProfessionId): string => {
+  switch (professionId) {
+    case 'frontend':
+      return frontend;
+    case 'backend':
+      return backend;
+    case 'devops':
+      return devOps;
+    case 'projectmanager':
+      return projectManager;
+    case 'qa':
+      return qa;
+    case 'uxui':
+      return uxUi;
+    default:
+      return '';
+  }
 };
 
 export const DetailPage: React.FC<{}> = () => {
-  const { professionId } = useParams<{ professionId: string }>();
+  const { professionId } = useParams<{ professionId: ProfessionId }>();
+  const detailDescription = getData(professionId);
+
+  const history = useHistory();
+
   const profession = ITProfessions.find(p => p.id === professionId);
+
   return (
     <>
-      {profession && (
+      {(profession && detailDescription) ? (
         <MainContainer>
+          <BackButton />
           <ProfessionCard
             key={profession.id}
             title={profession.title}
-            // TODO: change to longer profession description after
-            // adding profession data
-            description={profession.description}
+            description={detailDescription}
             avatarSrc={profession.icon}
             avatarBackground={profession.color}
           />
-          <TabContainer>
-            <BackButton />
-            <Tabs categories={profession.categories} profession={profession} />
+          <TabContainer>  
+            <Tabs
+              professionId={professionId}
+            />
             {PROFESSION_CHARTS[profession.id]}
           </TabContainer>
         </MainContainer>
-      )}
+      ) : <NoMatch404 />}
     </>
   );
 };
