@@ -24,6 +24,7 @@ const SearchButton = styled(Button)`
 const HiringImage = styled('object')`
   width: 250px;
   float: right;
+  margin-right: ${props => props.theme.spacing(2)}px;
 `;
 
 const SearchSpinner = styled('div')`
