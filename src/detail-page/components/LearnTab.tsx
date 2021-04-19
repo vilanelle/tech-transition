@@ -7,7 +7,7 @@ const TabContainer = styled('div')`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   grid-gap: 2em;
-  padding: 1.5em;
+  /* padding: 1.5em; */
   width: 100%;
 `;
 
