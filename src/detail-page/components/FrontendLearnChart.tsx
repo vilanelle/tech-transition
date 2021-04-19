@@ -59,7 +59,7 @@ const StyledParagraph = styled('p')`
 `;
 
 export const FrontendLearnChart: React.FC<{}> = () => (
-  <div style={{ height: '300px', width: '400px' }}>
+  <div style={{ height: '300px', maxWidth: '400px' }}>
     <Bar
       data={FrontendLearnChartData}
       width={100}
