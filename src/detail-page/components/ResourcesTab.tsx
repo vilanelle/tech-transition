@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ProfessionId } from '../../data/home-page/ITProfessions';
 import ResourcesIcon from '../../icons/resources.svg';
+import { ProfessionId } from '../../data/home-page/ITProfessions';
 import { ResourcesList } from './ResourcesList';
 
 interface ResourcesTabProps {
@@ -15,7 +15,7 @@ const TabContainer = styled('div')`
   grid-gap: 2em;
 
   ${({ theme }) => theme.breakpoints.up('md')} {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
   }
 `;
 

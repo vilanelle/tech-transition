@@ -3,22 +3,21 @@ import styled from 'styled-components';
 import {
   Accordion as MuiAccordion,
   AccordionDetails as MuiAccordionDetails,
-  AccordionSummary,
-  Link,
+  AccordionSummary as MuiAccordionSummary,
   List,
-  ListItem as MuiListItem,
   Typography,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import { Resource } from '../../../data/detail-page/resources/ResourcesInterfaces';
 import { AccordionListItem } from './AccordionListItem';
+import { Resource } from '../../../data/detail-page/resources/ResourcesInterfaces';
 
 interface AccordionProps {
   header: string;
   list: Resource[];
+  panelNumber: number;
 }
 
-const StyledAccordion = styled((props) => <MuiAccordion {...props} />)`
+const StyledAccordion = styled(props => <MuiAccordion {...props} />)`
   border: 1px solid ${({ theme }) => theme.palette.text.disabled};
   box-shadow: none;
 
@@ -39,26 +38,42 @@ const StyledAccordion = styled((props) => <MuiAccordion {...props} />)`
   }
 `;
 
+const StyledAccordionSummary = styled(props => <MuiAccordionSummary {...props} />)`
+  &.Mui-expanded {
+    min-height: 24px;
+
+    .MuiAccordionSummary-content.Mui-expanded {
+      margin: 12px 0 0;
+    }
+  }
+`;
+
 const StyledAccordionDetails = styled(MuiAccordionDetails)`
   display: flex;
   flex-direction: column;
+  padding: ${({ theme }) => theme.spacing(0, 2, 1)};
 `;
 
-export const Accordion: React.FC<AccordionProps> = ({ header, list }) => (
-  <StyledAccordion square>
-    <AccordionSummary
-      expandIcon={<ExpandMore />}
-      aria-controls="panel1a-content"
-      id="panel1a-header"
-    >
-      <Typography>{header}</Typography>
-    </AccordionSummary>
-    <StyledAccordionDetails>
-      <List>
-        {list.map((listElement) => (
-          <AccordionListItem key={listElement.id} listElement={listElement} />
-        ))}
-      </List>
-    </StyledAccordionDetails>
-  </StyledAccordion>
-);
+export const Accordion: React.FC<AccordionProps> = ({ header, list, panelNumber }) => {
+  const accordionPanelId = `panel${panelNumber}-header`;
+  const accordionAriaControls = `panel${panelNumber}-content`;
+
+  return (
+    <StyledAccordion square>
+      <StyledAccordionSummary
+        expandIcon={<ExpandMore />}
+        aria-controls={accordionPanelId}
+        id={accordionAriaControls}
+      >
+        <Typography>{header}</Typography>
+      </StyledAccordionSummary>
+      <StyledAccordionDetails>
+        <List disablePadding>
+          {list.map(listElement => (
+            <AccordionListItem key={listElement.id} listElement={listElement} />
+          ))}
+        </List>
+      </StyledAccordionDetails>
+    </StyledAccordion>
+  );
+};

@@ -7,7 +7,7 @@ interface AccordionListItemProps {
   listElement: Resource;
 }
 
-const StyledListItem = styled((props) => <MuiListItem {...props} />)`
+const StyledListItem = styled(props => <MuiListItem {...props} />)`
   padding-left: 0;
   flex-direction: column;
   align-items: flex-start;
@@ -25,7 +25,7 @@ export const AccordionListItem: React.FC<AccordionListItemProps> = ({
 
   return (
     <StyledListItem>
-      <Link href={url}>{title}</Link>
+      <Link href={url} variant="body2">{title}</Link>
       {hasDescription && (
         <StyledListElementDescription>
           {description}
