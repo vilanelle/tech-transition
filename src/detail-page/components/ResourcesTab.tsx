@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Accordion } from './accordion/Accordion';
-import { MockResources } from '../../data/mock-data/mockResources';
 import { ProfessionId } from '../../data/home-page/ITProfessions';
-import { ResourcesType } from '../../data/detail-page/resources/resourcesInterfaces';
-import { ResourcesTypeNames } from '../../data/detail-page/resources/resourcesTypeNames';
 import ResourcesIcon from '../../icons/resources.svg';
+import { ResourcesList } from './ResourcesList';
 
 interface ResourcesTabProps {
   professionId: ProfessionId;
@@ -34,23 +31,7 @@ const Image = styled('img')`
 
 export const ResourcesTab: React.FC<ResourcesTabProps> = ({ professionId }) => (
   <TabContainer>
-    <div>
-      {Object.keys(MockResources).map((key) => {
-        const resourceTitle = ResourcesTypeNames[key as ResourcesType];
-
-        const areResources = MockResources[key as ResourcesType].length !== 0;
-
-        return (
-          areResources && (
-            <Accordion
-              key={resourceTitle}
-              header={resourceTitle}
-              list={MockResources[key as ResourcesType]}
-            />
-          )
-        );
-      })}
-    </div>
+    <ResourcesList professionId={professionId} />
     <ImageContainer>
       <Image
         src={ResourcesIcon}

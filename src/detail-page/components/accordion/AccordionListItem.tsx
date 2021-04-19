@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, ListItem as MuiListItem, Typography } from '@material-ui/core';
-import { Resource } from '../../../data/detail-page/resources/resourcesInterfaces';
+import { Resource } from '../../../data/detail-page/resources/ResourcesInterfaces';
 
 interface AccordionListItemProps {
   listElement: Resource;

@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { Resources } from '../detail-page/resources/resourcesInterfaces';
+import { Resources } from '../detail-page/resources/ResourcesInterfaces';
 
 export const MockResources: Resources = {
   books: [],

@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import { Resource } from '../../../data/detail-page/resources/resourcesInterfaces';
+import { Resource } from '../../../data/detail-page/resources/ResourcesInterfaces';
 import { AccordionListItem } from './AccordionListItem';
 
 interface AccordionProps {
