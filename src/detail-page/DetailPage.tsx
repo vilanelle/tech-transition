@@ -6,7 +6,6 @@ import { ITProfessions, ProfessionId } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
 import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
-import { FrontendLearnChart } from './components/FrontendLearnChart';
 import { BackButton } from './BackButton';
 import { Tabs } from './components/tabs/Tabs';
 
@@ -18,15 +17,6 @@ export const TabContainer = styled('div')`
     margin: ${({ theme }) => theme.spacing(3, 0, 0)};
   }
 `;
-
-const PROFESSION_CHARTS = {
-  frontend: <FrontendLearnChart />,
-  backend: null,
-  uxui: null,
-  qa: null,
-  devops: null,
-  projectmanager: null,
-}
 
 const getData = (professionId: ProfessionId): string => {
   switch (professionId) {
@@ -67,11 +57,10 @@ export const DetailPage: React.FC<{}> = () => {
             avatarSrc={profession.icon}
             avatarBackground={profession.color}
           />
-          <TabContainer>  
+          <TabContainer>
             <Tabs
               professionId={professionId}
             />
-            {PROFESSION_CHARTS[profession.id]}
           </TabContainer>
         </MainContainer>
       ) : <NoMatch404 />}
