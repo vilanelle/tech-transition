@@ -21,7 +21,7 @@ const SearchButton = styled(Button)`
   color: white;
 `;
 
-const HiringImage = styled('object')`
+const HiringImage = styled('img')`
   width: 250px;
   float: right;
   margin-right: ${props => props.theme.spacing(2)}px;
@@ -45,8 +45,7 @@ const JobTab: React.FC = () => {
   let { jobPosts, isFetching } = useFetchJobs(url);
 
   const handleSearch = () => {
-    jobPosts = [];
-    setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?title=${role}&location=${city}`);
+    setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?description=${role}&location=${city}`);
   };
   return (
     <>
@@ -76,7 +75,7 @@ const JobTab: React.FC = () => {
       >
         Search
       </SearchButton>
-      {jobPosts.length > 0 ? null : <HiringImage data={hiringPicture} />}
+      {jobPosts.length > 0 ? null : <HiringImage src={hiringPicture} />}
       { isFetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
       <JobList>
         {jobPosts.map((job: Job) => <JobListItem job={job} key={job.id} />)}

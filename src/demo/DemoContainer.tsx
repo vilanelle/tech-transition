@@ -16,7 +16,7 @@ const StyledDiv = styled('div')`
   align-items: center;
   margin-top: 15px;
   border: 1px solid ${props => props.theme.palette.primary.main};
-  box-shadow: 5px 3px 3px ${props => props.theme.palette.secondary.main};
+  box-shadow: 5px 3px 3px ${props => props.theme.palette.primary.dark};
 `;
 
 const StyledTypography = styled(Typography)`

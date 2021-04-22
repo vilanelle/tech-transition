@@ -7,6 +7,7 @@ export const useFetchJobs = (url: string) => {
 
   useEffect(() => {
     if (!url) return;
+    setJobPosts([]);
     const fetchData = async () => {
       setIsFetching(true);
       const response = await fetch(url);

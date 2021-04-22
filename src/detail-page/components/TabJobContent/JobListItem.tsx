@@ -20,7 +20,7 @@ const JobListButton = styled(Button)`
 `;
 const JobListColorElement = styled('div')`
   width: 6px;
-  background: ${props => props.theme.palette.secondary.main};
+  background: ${props => props.theme.palette.primary.dark};
   margin-right: ${props => props.theme.spacing(2)}px;
 `;
 
@@ -29,13 +29,15 @@ interface Props {
 }
 
 export const JobListItem: React.FC<Props> = ({ job }) => {
-  return (
+  const matchHtmlTag = /<\/?[^>]+(>|$)/g;
+  const formatDescription = (description: string) => description.replace(matchHtmlTag, '').substring(0, 200);
 
+  return (
     <JobListElement key={job.id}>
       <JobListColorElement> </JobListColorElement>
       <JobListContent>
         <h4>{job.company} {job.title} </h4>
-        <Typography variant="body2" color="textSecondary">{job.description.replace(/<\/?[^>]+(>|$)/g, '').substring(0, 200)}...</Typography>
+        <Typography variant="body2" color="textSecondary">{formatDescription(job.description)}...</Typography>
       </JobListContent>
       <JobListButton color="secondary" href={job.url}>See More</JobListButton>
     </JobListElement>
