@@ -41,8 +41,7 @@ const JobTab: React.FC = () => {
   const [url, setUrl] = React.useState('');
   const handleChangeRole = React.useCallback(e => setRole(e.target.value), []);
   const handleChangeCity = React.useCallback(e => setCity(e.target.value), []);
-  /* eslint-disable prefer-const */
-  let { jobPosts, isFetching } = useFetchJobs(url);
+  const { jobPosts, isFetching } = useFetchJobs(url);
 
   const handleSearch = () => {
     setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?description=${role}&location=${city}`);
