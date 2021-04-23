@@ -17,14 +17,14 @@ export const ResourcesList: React.FC<ResourcesListProps> = ({
     <div>
       {Object.keys(resourcesData).map((resourceType, index) => {
         const resourceTitle = ResourcesTypeNames[resourceType as ResourcesType];
-        const areResources = resourcesData[resourceType as ResourcesType].length !== 0;
+        const areResourcesAvailable = resourcesData[resourceType as ResourcesType].length !== 0;
 
         return (
-          areResources && (
+          areResourcesAvailable && (
             <Accordion
               key={resourceTitle}
               header={resourceTitle}
-              list={resourcesData[resourceType as ResourcesType]}
+              resources={resourcesData[resourceType as ResourcesType]}
               panelNumber={index}
             />
           )

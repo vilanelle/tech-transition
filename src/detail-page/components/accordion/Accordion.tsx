@@ -13,12 +13,12 @@ import { Resource } from '../../../data/detail-page/resources/ResourcesInterface
 
 interface AccordionProps {
   header: string;
-  list: Resource[];
+  resources: Resource[];
   panelNumber: number;
 }
 
-const StyledAccordion = styled(props => <MuiAccordion {...props} />)`
-  border: 1px solid ${({ theme }) => theme.palette.text.disabled};
+const StyledAccordion = styled(MuiAccordion)`
+  border: 1px solid ${({ theme }) => theme.palette.grey[300]};
   box-shadow: none;
 
   &:not(:first-child) {
@@ -30,15 +30,16 @@ const StyledAccordion = styled(props => <MuiAccordion {...props} />)`
   }
 
   &.Mui-expanded + & {
-    border-top: 1px solid ${({ theme }) => theme.palette.text.disabled};
+    border-top: 1px solid ${({ theme }) => theme.palette.grey[300]};
   }
 
   &.Mui-expanded {
-    border-top: 1px solid ${({ theme }) => theme.palette.text.disabled};
+    border-top: 1px solid ${({ theme }) => theme.palette.grey[300]};
   }
 `;
 
-const StyledAccordionSummary = styled(props => <MuiAccordionSummary {...props} />)`
+// const StyledAccordionSummary = styled(props => <MuiAccordionSummary {...props} />)`
+const StyledAccordionSummary = styled(MuiAccordionSummary)`
   &.Mui-expanded {
     min-height: 24px;
 
@@ -54,7 +55,7 @@ const StyledAccordionDetails = styled(MuiAccordionDetails)`
   padding: ${({ theme }) => theme.spacing(0, 2, 1)};
 `;
 
-export const Accordion: React.FC<AccordionProps> = ({ header, list, panelNumber }) => {
+export const Accordion: React.FC<AccordionProps> = ({ header, resources, panelNumber }) => {
   const accordionPanelId = `panel${panelNumber}-header`;
   const accordionAriaControls = `panel${panelNumber}-content`;
 
@@ -69,7 +70,7 @@ export const Accordion: React.FC<AccordionProps> = ({ header, list, panelNumber 
       </StyledAccordionSummary>
       <StyledAccordionDetails>
         <List disablePadding>
-          {list.map(listElement => (
+          {resources.map(listElement => (
             <AccordionListItem key={listElement.id} listElement={listElement} />
           ))}
         </List>
