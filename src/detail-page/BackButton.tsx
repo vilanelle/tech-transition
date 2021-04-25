@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 const BackButtonStyle = styled(Button)`
-  margin: 1em;  
+margin: ${props => props.theme.spacing(2)}px 0;  
 `;
 
 export const BackButton: React.FC<{}> = () => {
