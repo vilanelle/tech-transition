@@ -1,28 +1,29 @@
 {
   "files": {
     "main.css": "/tech-transition/static/css/main.260ac067.chunk.css",
-    "main.js": "/tech-transition/static/js/main.63f401b9.chunk.js",
-    "main.js.map": "/tech-transition/static/js/main.63f401b9.chunk.js.map",
-    "runtime-main.js": "/tech-transition/static/js/runtime-main.aa330a94.js",
-    "runtime-main.js.map": "/tech-transition/static/js/runtime-main.aa330a94.js.map",
-    "static/js/2.f08eb9d9.chunk.js": "/tech-transition/static/js/2.f08eb9d9.chunk.js",
-    "static/js/2.f08eb9d9.chunk.js.map": "/tech-transition/static/js/2.f08eb9d9.chunk.js.map",
-    "static/js/3.ebab52b3.chunk.js": "/tech-transition/static/js/3.ebab52b3.chunk.js",
-    "static/js/3.ebab52b3.chunk.js.map": "/tech-transition/static/js/3.ebab52b3.chunk.js.map",
+    "main.js": "/tech-transition/static/js/main.d3e760f3.chunk.js",
+    "main.js.map": "/tech-transition/static/js/main.d3e760f3.chunk.js.map",
+    "runtime-main.js": "/tech-transition/static/js/runtime-main.7adfb047.js",
+    "runtime-main.js.map": "/tech-transition/static/js/runtime-main.7adfb047.js.map",
+    "static/js/2.9ffcd230.chunk.js": "/tech-transition/static/js/2.9ffcd230.chunk.js",
+    "static/js/2.9ffcd230.chunk.js.map": "/tech-transition/static/js/2.9ffcd230.chunk.js.map",
+    "static/js/3.4f70bf75.chunk.js": "/tech-transition/static/js/3.4f70bf75.chunk.js",
+    "static/js/3.4f70bf75.chunk.js.map": "/tech-transition/static/js/3.4f70bf75.chunk.js.map",
     "index.html": "/tech-transition/index.html",
     "static/css/main.260ac067.chunk.css.map": "/tech-transition/static/css/main.260ac067.chunk.css.map",
-    "static/js/2.f08eb9d9.chunk.js.LICENSE.txt": "/tech-transition/static/js/2.f08eb9d9.chunk.js.LICENSE.txt",
+    "static/js/2.9ffcd230.chunk.js.LICENSE.txt": "/tech-transition/static/js/2.9ffcd230.chunk.js.LICENSE.txt",
     "static/media/backend.e5dd589a.svg": "/tech-transition/static/media/backend.e5dd589a.svg",
     "static/media/devops.526c43b9.svg": "/tech-transition/static/media/devops.526c43b9.svg",
     "static/media/frontend.0cba3fe3.svg": "/tech-transition/static/media/frontend.0cba3fe3.svg",
+    "static/media/hiring.f6c37790.svg": "/tech-transition/static/media/hiring.f6c37790.svg",
     "static/media/project_manager.1f0575de.svg": "/tech-transition/static/media/project_manager.1f0575de.svg",
     "static/media/qa.76467f02.svg": "/tech-transition/static/media/qa.76467f02.svg",
     "static/media/ux_ui.1e1dd114.svg": "/tech-transition/static/media/ux_ui.1e1dd114.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.aa330a94.js",
-    "static/js/2.f08eb9d9.chunk.js",
+    "static/js/runtime-main.7adfb047.js",
+    "static/js/2.9ffcd230.chunk.js",
     "static/css/main.260ac067.chunk.css",
-    "static/js/main.63f401b9.chunk.js"
+    "static/js/main.d3e760f3.chunk.js"
   ]
 }
