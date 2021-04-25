@@ -47,7 +47,7 @@ export const useTabData = (professionId: ProfessionId): UseTabDataValue => {
   const getTabContent = (categoryName: CategoryId) => {
     switch (categoryName) {
       case 'jobs':
-        return <JobsTab professionId={professionId} />;
+        return <JobsTab />;
       case 'learn':
         return <LearnTab professionId={professionId} />;
       case 'resources':
