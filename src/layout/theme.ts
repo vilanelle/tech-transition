@@ -48,6 +48,12 @@ export const theme = createMuiTheme({
         fontSize: 13,
       },
     },
+    subtitle1: {
+      fontSize: 30,
+    },
+    h4: {
+      fontSize: 160,
+    },
   },
   palette: {
     primary: {
@@ -55,11 +61,13 @@ export const theme = createMuiTheme({
       dark: '#725FC0',
     },
     secondary: {
-      main: '#725FC0',
+      main: '#d99cff',
+      contrastText: '#ffffff',
     },
     text: {
       primary: '#222222',
-      disabled: '#22222233', // Text color with opacity 30%
+      disabled: '#22222233',
+      // Text color with opacity 30%
     },
 
     // we could add more colors later (lighter or darker)

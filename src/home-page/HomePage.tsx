@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { ITProfessions } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
-import { Header } from './components/Header';
+import { ProfessionCard } from '../shared/components/ProfessionCard';
 import { Description } from './components/Description';
 import { GridContainer } from './components/GridContainer';
-import { ProfessionCard } from '../shared/components/ProfessionCard';
-import { ITProfessions } from '../data/ITProfessions';
+import { Header } from './components/Header';
 
 const StyledLink = styled(Link)`
   display: flex;
