@@ -54,16 +54,20 @@ const JobTab: React.FC = () => {
         value={role}
         disableUnderline
         onChange={handleChangeRole}
-        onKeyPress={(ev) => {
-          ev.key === 'Enter' ? handleSearch() : null;
-        }}
+        onKeyPress={
+          ev => {
+            /* eslint-disable no-unused-expressions */
+            ev.key === 'Enter' ? handleSearch() : null;
+          }
+        }
       />
       <SearchInput
         placeholder="City"
         disableUnderline
         value={city}
         onChange={handleChangeCity}
-        onKeyPress={(ev) => {
+        onKeyPress={ev => {
+          /* eslint-disable no-unused-expressions */
           ev.key === 'Enter' ? handleSearch() : null;
         }}
       />
