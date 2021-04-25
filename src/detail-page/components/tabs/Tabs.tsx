@@ -33,30 +33,30 @@ export const Tabs: React.FC<TabProps> = ({ professionId }) => {
   return (
     <>
       { (categories.length !== 0)
-      && (
-        <TabsContainer>
-          <StyledTabs indicatorColor="primary" value={activeTab}>
-            {categories.map((category, index) => (
-              <Tab
-                key={availableCategories[category].name}
-                text={availableCategories[category].text}
-                chosenTab={activeTab}
-                index={index}
-                handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex)}
-              />
-            ))}
-          </StyledTabs>
-          <Switch>
-            <Redirect exact from="/details/:professionId" to={`${url}/learn`} />
-            <Route exact path={`${path}/:categoryId`}>
-              <TabPanel
-                getTabContent={getTabContent}
-                syncTabWithPath={syncTabWithPath}
-              />
-            </Route>
-          </Switch>
-        </TabsContainer>
-      )}
+        && (
+          <TabsContainer>
+            <StyledTabs indicatorColor="primary" value={activeTab}>
+              {categories.map((category, index) => (
+                <Tab
+                  key={availableCategories[category].name}
+                  text={availableCategories[category].text}
+                  chosenTab={activeTab}
+                  index={index}
+                  handleClick={(tabIndex: number) => handleTabClicked(availableCategories[category], tabIndex)}
+                />
+              ))}
+            </StyledTabs>
+            <Switch>
+              <Redirect exact from="/details/:professionId" to={`${url}/learn`} />
+              <Route exact path={`${path}/:categoryId`}>
+                <TabPanel
+                  getTabContent={getTabContent}
+                  syncTabWithPath={syncTabWithPath}
+                />
+              </Route>
+            </Switch>
+          </TabsContainer>
+        )}
     </>
   );
 };

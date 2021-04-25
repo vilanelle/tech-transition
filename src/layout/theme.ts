@@ -58,6 +58,7 @@ export const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#725ec0',
+      dark: '#725FC0',
     },
     secondary: {
       main: '#d99cff',
@@ -68,6 +69,7 @@ export const theme = createMuiTheme({
       disabled: '#22222233',
       // Text color with opacity 30%
     },
+
     // we could add more colors later (lighter or darker)
     professions: {
       frontend: {

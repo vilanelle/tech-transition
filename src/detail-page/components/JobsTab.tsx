@@ -1,12 +1,13 @@
 import React from 'react';
-import { ProfessionId } from '../../data/home-page/ITProfessions';
+import styled from 'styled-components';
+import JobTab from './TabJobContent/JobTab';
 
-interface JobProps {
-  professionId: ProfessionId;
-}
+const StyledTab = styled('div')`
+  min-height: 500px;
+`;
 
-export const JobsTab: React.FC<JobProps> = ({ professionId }) => (
-  <div>
-    {/* Should be replace with actual content */}
-  </div>
+export const JobsTab: React.FC = () => (
+  <StyledTab>
+    <JobTab />
+  </StyledTab>
 );
