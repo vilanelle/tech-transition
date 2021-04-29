@@ -10,8 +10,8 @@ const SearchInput = styled(Input)`
   width: 250px;
   height: 35px;
   border: 1px #CFCFCF solid;
-  margin: ${props => props.theme.spacing(5)}px 0 ${props => props.theme.spacing(1.5)}px ${props => props.theme.spacing(1.5)}px ;
-  padding-left: ${props => props.theme.spacing(1.5)}px 
+  margin: ${props => props.theme.spacing(5)}px 0 ${props => props.theme.spacing(1.5)}px ${props => props.theme.spacing(1.5)}px;
+  padding-left: ${props => props.theme.spacing(1.5)}px;
 `;
 
 const SearchButton = styled(Button)`
