@@ -38,7 +38,6 @@ const StyledAccordion = styled(MuiAccordion)`
   }
 `;
 
-// const StyledAccordionSummary = styled(props => <MuiAccordionSummary {...props} />)`
 const StyledAccordionSummary = styled(MuiAccordionSummary)`
   &.Mui-expanded {
     min-height: 24px;

@@ -2,8 +2,7 @@ import React from 'react';
 import { Accordion } from './accordion/Accordion';
 import { getData } from './ResourcesList.helpers';
 import { ProfessionId } from '../../data/home-page/ITProfessions';
-import { ResourcesType } from '../../data/detail-page/resources/ResourcesInterfaces';
-import { ResourcesTypeNames } from '../../data/detail-page/resources/ResourcesTypeNames';
+import { ResourceType, ResourceTypeNames } from '../../data/detail-page/resources/ResourceTypeNames';
 
 interface ResourcesListProps {
   professionId: ProfessionId;
@@ -16,15 +15,15 @@ export const ResourcesList: React.FC<ResourcesListProps> = ({
   return (
     <div>
       {Object.keys(resourcesData).map((resourceType, index) => {
-        const resourceTitle = ResourcesTypeNames[resourceType as ResourcesType];
-        const areResourcesAvailable = resourcesData[resourceType as ResourcesType].length !== 0;
+        const resourceTitle = ResourceTypeNames[resourceType as ResourceType];
+        const areResourcesAvailable = resourcesData[resourceType as ResourceType].length !== 0;
 
         return (
           areResourcesAvailable && (
             <Accordion
               key={resourceTitle}
               header={resourceTitle}
-              resources={resourcesData[resourceType as ResourcesType]}
+              resources={resourcesData[resourceType as ResourceType]}
               panelNumber={index}
             />
           )

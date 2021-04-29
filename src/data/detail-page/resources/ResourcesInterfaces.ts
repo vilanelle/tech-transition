@@ -1,4 +1,4 @@
-export type ResourcesType = 'books' | 'courses' | 'platforms' | 'tools' | 'communities' | 'portalsAndPodcasts' | 'games' | 'varia';
+import { ResourceType } from './ResourceTypeNames';
 
 export interface Resource {
   title: string;
@@ -7,4 +7,4 @@ export interface Resource {
   id: string;
 }
 
-export type Resources = Record<ResourcesType, Resource[]>;
+export type Resources = Record<ResourceType, Resource[]>;

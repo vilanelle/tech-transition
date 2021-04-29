@@ -21,7 +21,7 @@ export const AccordionListItem: React.FC<AccordionListItemProps> = ({
   listElement,
 }) => {
   const { url, title, description } = listElement;
-  const hasDescription = url !== null;
+  const hasDescription = description !== null;
 
   return (
     <StyledListItem>
