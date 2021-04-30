@@ -1,4 +1,4 @@
-import { Resources } from './resourcesInterfaces';
+import { Resources } from './ResourcesInterfaces';
 
 export const projectManager: Resources = {
   books: [],

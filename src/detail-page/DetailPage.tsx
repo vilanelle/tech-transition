@@ -6,7 +6,7 @@ import { ITProfessions, ProfessionId } from '../data/home-page/ITProfessions';
 import { MainContainer } from '../layout/components/MainContainer';
 import { NoMatch404 } from '../layout/components/NoMatch404';
 import { ProfessionCard } from '../shared/components/ProfessionCard';
-import { BackButton } from './BackButton';
+import { BackButton } from './components/BackButton';
 import { Tabs } from './components/tabs/Tabs';
 
 export const TabContainer = styled('div')`

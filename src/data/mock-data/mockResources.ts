@@ -1,21 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import { Resources } from './ResourcesInterfaces';
+import { Resources } from '../detail-page/resources/ResourcesInterfaces';
 
-export const devOps: Resources = {
-  books: [
-    {
-      title: 'Bash Guide for Beginners',
-      url: 'https://tldp.org/LDP/Bash-Beginners-Guide/html/',
-      id: uuid(),
-      description: null,
-    },
-    {
-      title: 'CI/CD with Kubernetes',
-      url: 'https://www.cncf.io/free-ebook-ci-cd-with-kubernetes/',
-      id: uuid(),
-      description: null,
-    },
-  ],
+export const MockResources: Resources = {
+  books: [],
   courses: [
     {
       title: 'DevOps Culture and Mindset',
@@ -23,35 +10,11 @@ export const devOps: Resources = {
       id: uuid(),
       description: null,
     },
-    {
-      title: 'Introduction to DevOps and Site Reliability Engineering',
-      url: 'https://www.edx.org/course/introduction-to-devops-and-site-reliability-engineering',
-      id: uuid(),
-      description: 'A course from edx covering principles & practices of DevOps',
-    },
-    {
-      title: 'Shell Scripting Tutorial for Beginners',
-      url: 'https://www.youtube.com/playlist?list=PLS1QulWo1RIYmaxcEqw5JhK3b-6rgdWO_',
-      id: uuid(),
-      description: 'Youtube video course',
-    },
   ],
   platforms: [
     {
       title: 'Coursera',
       url: 'https://www.coursera.org',
-      id: uuid(),
-      description: null,
-    },
-    {
-      title: 'Udacity',
-      url: 'https://www.udacity.com',
-      id: uuid(),
-      description: null,
-    },
-    {
-      title: 'edx',
-      url: 'https://www.edx.org',
       id: uuid(),
       description: null,
     },
@@ -83,7 +46,8 @@ export const devOps: Resources = {
     {
       title: 'DZone',
       url: 'https://dzone.com/',
-      description: null,
+      description:
+        null,
       id: uuid(),
     },
   ],
