@@ -1,5 +1,10 @@
 # Power up your transITion
 
+Your go-to place for professional IT transition resources and ideas. 
+A group project realized as part of [DareIt Mentoring Program 2021](https://mentoring.dareit.org/). 
+
+## Live version
+https://vilanelle.github.io/tech-transition
 
 
 ## Credits
