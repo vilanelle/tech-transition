@@ -34,8 +34,18 @@ const StyledWrapper = styled('div')`
   max-width: 400px;
 `;
 
+const StyledSource = styled('p')`
+  font-size: 0.8rem;
+  margin-top: ${({ theme }) => `${theme.spacing(3)}px`};
+  text-align: right;
+`;
+
+// Source Paragraph can be shared between all charts?
 export const DevOpsChart: VFC = () => (
   <StyledWrapper>
     <Pie data={ChartData} options={ChartOptions} />
+    <StyledSource>
+      Source: <a href={source?.link}>{source?.description}</a>
+    </StyledSource>
   </StyledWrapper>
 );
