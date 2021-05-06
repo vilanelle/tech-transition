@@ -36,6 +36,6 @@ export const chartColors: Record<ChartColor, ColorShade> = {
   },
   cyan: {
     light: '#d6fff1',
-    dark: '#44fbf6',
+    dark: '#41d3a2',
   },
 };

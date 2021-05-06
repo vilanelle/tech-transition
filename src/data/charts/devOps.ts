@@ -1,12 +1,6 @@
-import { Chart, ChartDataItem, ChartColor } from './chartInterfaces';
+import { ChartDataInterface, ChartDataItem } from './chartInterfaces';
 
-interface DevOpsChartDataItem extends ChartDataItem {
-  color: ChartColor;
-}
-
-type DevOpsChart = Omit<Chart, 'data'> & { data: DevOpsChartDataItem[]};
-
-const data: DevOpsChartDataItem[] = [
+const data: ChartDataItem[] = [
   {
     label: 'aws',
     value: 32,
@@ -49,13 +43,14 @@ const data: DevOpsChartDataItem[] = [
   },
 ];
 
-export const devOps: DevOpsChart = {
+export const devOps: ChartDataInterface = {
   data,
-  title: 'Market share of cloud infrastructure service providers Q4 2020',
+  title: 'Market share of cloud infrastructure service providers Q4\u00A02020',
   source: {
     description: 'statista.com',
     link:
       'https://www.statista.com/chart/18819/worldwide-market-share-of-leading-cloud-infrastructure-service-providers/',
   },
   labelText: '% of market',
+  type: 'devops',
 };

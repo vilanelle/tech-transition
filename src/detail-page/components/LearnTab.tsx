@@ -19,13 +19,18 @@ const PROFESSION_CHARTS = {
   devops: <DevOpsChart />,
   projectmanager: null,
 };
+
 interface LearnProps {
   professionId: ProfessionId;
 }
 
+const StyledChartWrapper = styled('div')`
+  margin: 0 auto;
+`;
+
 export const LearnTab: React.FC<LearnProps> = ({ professionId }) => (
   <TabContainer>
     <LearnList professionId={professionId} />
-    <div>{PROFESSION_CHARTS[professionId]}</div>
+    <StyledChartWrapper>{PROFESSION_CHARTS[professionId]}</StyledChartWrapper>
   </TabContainer>
 );
