@@ -3,32 +3,61 @@ import { Pie } from 'react-chartjs-2';
 import { devOps } from '../../../data/charts';
 import { chartColors } from '../../../data/charts/chartColors';
 import { Chart } from './Chart';
+import { notEmpty } from '../../../shared/utils/helpers';
 
-const { data: sourceData, labelText, source, title: chartTitle } = devOps;
+const { data: sourceData, labelText, source, title: chartTitle, type } = devOps;
 
-const ChartData = {
-  labels: sourceData.map(({ label }) => label),
+const chartLabels = sourceData.map(({ label }) => label);
+const chartValues = sourceData.map(({ value }) => value);
+const chartBackgroundColors = sourceData
+  .map(({ color }) => (color ? chartColors[color].light : null))
+  .filter(notEmpty);
+const chartBorderColors = sourceData
+  .map(({ color }) => (color ? chartColors[color].dark : null))
+  .filter(notEmpty);
+
+const areColorsDefined = !sourceData.some(({ color }) => color === null);
+
+const ChartData: Chart.ChartData = {
+  labels: chartLabels,
   datasets: [
     {
-      label: labelText,
-      data: sourceData.map(({ value }) => value),
-      backgroundColor: sourceData.map(({ color }) => (color ? chartColors[color].light : null)),
-      borderColor: sourceData.map(({ color }) => (color ? chartColors[color].dark : null)),
+      data: chartValues,
       borderWidth: 1,
+      ...(labelText && {
+        label: labelText,
+      }),
+      ...(areColorsDefined && {
+        backgroundColor: chartBackgroundColors,
+        borderColor: chartBorderColors,
+      }),
     },
   ],
 };
 
-const ChartOptions = {
+const ChartOptions: Chart.ChartOptions = {
   legend: {
     display: true,
   },
   responsive: true,
   maintainAspectRatio: true,
+  tooltips: {
+    callbacks: {
+      label(tooltipItem, data) {
+        const { datasets, labels } = data;
+        const tooltipDatasetIndex = tooltipItem.datasetIndex!;
+        const tooltipIndex = tooltipItem.index!;
+        const tooltipLabel = datasets![tooltipDatasetIndex].label || '';
+        const tooltipValue = datasets![tooltipDatasetIndex].data![tooltipIndex];
+        const valueLabel = labels![tooltipIndex];
+        return ` ${valueLabel}: ${tooltipValue} ${tooltipLabel}`;
+      },
+    },
+  },
 };
 
 export const DevOpsChart: FC = () => (
-  <Chart maxWidth={400} title={chartTitle} source={source}>
+  <Chart maxWidth={400} title={chartTitle} source={source} type={type}>
     <Pie
       data={ChartData}
       options={ChartOptions}
