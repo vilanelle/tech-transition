@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import styled from 'styled-components';
 
-const FrontendLearnChartData = {
+const frontendLearnChartData = {
   labels: [
     'React',
     'Vue',
@@ -61,7 +61,7 @@ const StyledParagraph = styled('p')`
 export const FrontendLearnChart: React.FC<{}> = () => (
   <div style={{ height: '300px', maxWidth: '400px' }}>
     <Bar
-      data={FrontendLearnChartData}
+      data={frontendLearnChartData}
       width={100}
       height={300}
       options={ChartOptions}
