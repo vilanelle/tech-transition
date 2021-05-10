@@ -79,7 +79,7 @@ const ChartOptions = {
     text: 'Most popular JS frameworks in 2020',
   },
   legend: {
-    display: true,
+    display: false,
   },
 };
 
