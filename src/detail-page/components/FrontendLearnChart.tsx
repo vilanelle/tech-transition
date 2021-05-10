@@ -2,20 +2,51 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import styled from 'styled-components';
 
+interface ChartDataItem {
+  label: string;
+  value: number;
+}
+
+const data: ChartDataItem[] = [
+  {
+    label: 'React',
+    value: 75,
+  },
+  {
+    label: 'Vue',
+    value: 50,
+  },
+  {
+    label: 'Svelte',
+    value: 42,
+  },
+  {
+    label: 'Angular',
+    value: 30,
+  },
+  {
+    label: 'Preact',
+    value: 21,
+  },
+  {
+    label: 'Ember',
+    value: 15,
+  },
+  {
+    label: 'Backbone',
+    value: 5,
+  },
+  {
+    label: 'Other',
+    value: 10,
+  },
+];
+
 const frontendLearnChartData = {
-  labels: [
-    'React',
-    'Vue',
-    'Svelte',
-    'Angular',
-    'Preact',
-    'Ember',
-    'Backbone',
-    'Other',
-  ],
+  labels: data.map(item => item.label),
   datasets: [
     {
-      data: [75, 50, 42, 30, 21, 15, 5, 10],
+      data: data.map(item => item.value),
       backgroundColor: '#725ec0',
       barThickness: 30,
       label: '% of votes',
