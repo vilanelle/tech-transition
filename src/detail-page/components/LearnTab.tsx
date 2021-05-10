@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ProfessionId } from '../../data/home-page/ITProfessions';
 import { LearnList } from './LearnList';
+import { FrontendLearnChart } from './FrontendLearnChart';
 
 const TabContainer = styled('div')`
   display: grid;
@@ -9,6 +10,15 @@ const TabContainer = styled('div')`
   grid-gap: 2em;
   width: 100%;
 `;
+
+const PROFESSION_CHARTS = {
+  frontend: <FrontendLearnChart />,
+  backend: null,
+  uxui: null,
+  qa: null,
+  devops: null,
+  projectmanager: null,
+};
 
 interface LearnProps {
   professionId: ProfessionId;
@@ -19,6 +29,7 @@ export const LearnTab: React.FC<LearnProps> = ({ professionId }) => (
     <LearnList professionId={professionId} />
     <div>
       {/* Should be replace with actual content */}
+      {PROFESSION_CHARTS[professionId]}
     </div>
   </TabContainer>
 );
