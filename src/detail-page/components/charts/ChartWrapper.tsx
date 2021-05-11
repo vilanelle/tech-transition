@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import { ChartSource } from '../../../data/charts/chartInterfaces';
 import { ProfessionId } from '../../../data/home-page/ITProfessions';
 
-interface ChartInterface {
+interface Props {
   maxWidth: number;
   title: string;
   source: ChartSource | null;
@@ -27,7 +27,7 @@ const StyledSource = styled('p')`
   text-align: right;
 `;
 
-export const Chart: FC<ChartInterface> = ({ children, maxWidth, title, source, type }) => {
+export const ChartWrapper: FC<Props> = ({ children, maxWidth, title, source, type }) => {
   const chartId = `chart-${type}`;
   return (
     <StyledWrapper>

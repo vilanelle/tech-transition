@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { devOps } from '../../../data/charts';
 import { chartColors } from '../../../data/charts/chartColors';
-import { Chart } from './Chart';
+import { ChartWrapper } from './ChartWrapper';
 import { notEmpty } from '../../../shared/utils/helpers';
 
 const { data: sourceData, labelText, source, title: chartTitle, type } = devOps;
@@ -50,14 +50,14 @@ const ChartOptions: Chart.ChartOptions = {
         const tooltipLabel = datasets![tooltipDatasetIndex].label || '';
         const tooltipValue = datasets![tooltipDatasetIndex].data![tooltipIndex];
         const valueLabel = labels![tooltipIndex];
-        return ` ${valueLabel}: ${tooltipValue} ${tooltipLabel}`;
+        return ` ${valueLabel}: ${tooltipValue}${tooltipLabel}`;
       },
     },
   },
 };
 
 export const DevOpsChart: FC = () => (
-  <Chart maxWidth={400} title={chartTitle} source={source} type={type}>
+  <ChartWrapper maxWidth={400} title={chartTitle} source={source} type={type}>
     <Pie
       data={ChartData}
       options={ChartOptions}
@@ -66,5 +66,5 @@ export const DevOpsChart: FC = () => (
       height={150}
       redraw
     />
-  </Chart>
+  </ChartWrapper>
 );
