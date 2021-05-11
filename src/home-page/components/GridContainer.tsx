@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-/* Grid container for the main page */
 export const GridContainer = styled('div')`
     width: 100%;
     display: grid;

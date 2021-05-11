@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { backend, devOps, frontend, projectManager, qa, uxUi } from '../data/detail-page/descriptions/index';
 import { ITProfessions, ProfessionId } from '../data/home-page/ITProfessions';
@@ -40,8 +40,6 @@ const getData = (professionId: ProfessionId): string => {
 export const DetailPage: React.FC<{}> = () => {
   const { professionId } = useParams<{ professionId: ProfessionId }>();
   const detailDescription = getData(professionId);
-
-  const history = useHistory();
 
   const profession = ITProfessions.find(p => p.id === professionId);
 

@@ -2,7 +2,7 @@ import { Learn } from './LearnInterfaces';
 
 export const uxUi: Learn = {
   list: [
-    ' Understand all the design directions (a visual designer, a user experience designer,  a product designer, a graphic designer, UX researcher) and choose the right one for you.',
+    'Understand all the design directions (a visual designer, a user experience designer,  a product designer, a graphic designer, UX researcher) and choose the right one for you.',
     'Learn the fundamentals of UX design.',
     'Read design articles everyday it will help you  get familiar with design.',
     'Learning the basic principles of design and develop your eye for good UI/UX design.',
