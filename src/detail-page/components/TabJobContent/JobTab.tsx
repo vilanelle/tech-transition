@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Button, CircularProgress, Input } from '@material-ui/core';
+import { Button, CircularProgress, Input, Typography } from '@material-ui/core';
 import { JobListItem } from './JobListItem';
 import { useFetchJobs } from './useFetchJobs';
 import { Job } from '../../../data/Jobs';
@@ -33,16 +33,22 @@ const SearchSpinner = styled('div')`
 `;
 
 const JobList = styled('ul')`
-  padding:0;
+  padding: 0;
 `;
+
+const IsEmpty = styled('div')`
+  margin: ${props => props.theme.spacing(1.5)}px;
+`;
+
 const JobTab: React.FC = () => {
   const [role, setRole] = React.useState('');
   const [city, setCity] = React.useState('');
   const [url, setUrl] = React.useState('');
   const handleChangeRole = React.useCallback(e => setRole(e.target.value), []);
   const handleChangeCity = React.useCallback(e => setCity(e.target.value), []);
-  const { jobPosts, isFetching } = useFetchJobs(url);
-
+  /* eslint-disable prefer-const */
+  let { jobPosts, isFetching, emptySearchMessage } = useFetchJobs(url);
+  console.log(emptySearchMessage);
   const handleSearch = () => {
     setUrl(`https://cors.bridged.cc/https://jobs.github.com/positions.json?description=${role}&location=${city}`);
   };
@@ -78,11 +84,12 @@ const JobTab: React.FC = () => {
       >
         Search
       </SearchButton>
-      {jobPosts.length > 0 ? null : <HiringImage src={hiringPicture} />}
       { isFetching ? <SearchSpinner><CircularProgress /></SearchSpinner> : null}
       <JobList>
         {jobPosts.map((job: Job) => <JobListItem job={job} key={job.id} />)}
+        <IsEmpty>{jobPosts.length > 0 ? null : <Typography variant="h2" color="textSecondary"> {emptySearchMessage} </Typography>}</IsEmpty>
       </JobList>
+      {jobPosts.length > 0 ? null : <HiringImage src={hiringPicture} />}
     </>
   );
 };
