@@ -10,10 +10,10 @@ const { data: sourceData, labelText, source, title: chartTitle, type } = devOps;
 const chartLabels = sourceData.map(({ label }) => label);
 const chartValues = sourceData.map(({ value }) => value);
 const chartBackgroundColors = sourceData
-  .map(({ color }) => (color ? chartColors[color].light : null))
+  .map(({ color }) => color ? chartColors[color].light : null)
   .filter(notEmpty);
 const chartBorderColors = sourceData
-  .map(({ color }) => (color ? chartColors[color].dark : null))
+  .map(({ color }) => color ? chartColors[color].dark : null)
   .filter(notEmpty);
 
 const areColorsDefined = !sourceData.some(({ color }) => color === null);
