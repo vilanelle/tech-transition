@@ -9,14 +9,8 @@ const { data: sourceData, labelText, source, title: chartTitle, type } = devOps;
 
 const chartLabels = sourceData.map(({ label }) => label);
 const chartValues = sourceData.map(({ value }) => value);
-const chartBackgroundColors = sourceData
-  .map(({ color }) => color ? chartColors[color].light : null)
-  .filter(notEmpty);
-const chartBorderColors = sourceData
-  .map(({ color }) => color ? chartColors[color].dark : null)
-  .filter(notEmpty);
-
-const areColorsDefined = !sourceData.some(({ color }) => color === null);
+const chartBackgroundColors = sourceData.map(({ color }) => chartColors[color].light);
+const chartBorderColors = sourceData.map(({ color }) => chartColors[color].dark);
 
 const ChartData: Chart.ChartData = {
   labels: chartLabels,
@@ -27,10 +21,8 @@ const ChartData: Chart.ChartData = {
       ...(labelText && {
         label: labelText,
       }),
-      ...(areColorsDefined && {
-        backgroundColor: chartBackgroundColors,
-        borderColor: chartBorderColors,
-      }),
+      backgroundColor: chartBackgroundColors,
+      borderColor: chartBorderColors,
     },
   ],
 };

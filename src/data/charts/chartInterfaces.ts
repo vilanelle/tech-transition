@@ -16,7 +16,7 @@ export interface ChartSource {
 export interface ChartDataItem {
   label: string;
   value: number;
-  color?: ChartColor;
+  color: ChartColor;
 }
 
 export type ChartColor =
