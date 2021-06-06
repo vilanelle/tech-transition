@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ProfessionId } from '../../data/home-page/ITProfessions';
 import { LearnList } from './LearnList';
+import { DevOpsChart } from './charts/DevOpsChart';
 
 const TabContainer = styled('div')`
   display: grid;
@@ -10,15 +11,26 @@ const TabContainer = styled('div')`
   width: 100%;
 `;
 
+const PROFESSION_CHARTS = {
+  frontend: null,
+  backend: null,
+  uxui: null,
+  qa: null,
+  devops: <DevOpsChart />,
+  projectmanager: null,
+};
+
 interface LearnProps {
   professionId: ProfessionId;
 }
 
+const StyledChartWrapper = styled('div')`
+  margin: 0 auto;
+`;
+
 export const LearnTab: React.FC<LearnProps> = ({ professionId }) => (
   <TabContainer>
     <LearnList professionId={professionId} />
-    <div>
-      {/* Should be replace with actual content */}
-    </div>
+    <StyledChartWrapper>{PROFESSION_CHARTS[professionId]}</StyledChartWrapper>
   </TabContainer>
 );
