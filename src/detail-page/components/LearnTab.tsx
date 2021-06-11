@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ProfessionId } from '../../data/home-page/ITProfessions';
 import { LearnList } from './LearnList';
 import { DevOpsChart } from './charts/DevOpsChart';
+import { FrontEndChart } from './charts/FrontEndChart';
 
 const TabContainer = styled('div')`
   display: grid;
@@ -12,7 +13,7 @@ const TabContainer = styled('div')`
 `;
 
 const PROFESSION_CHARTS = {
-  frontend: null,
+  frontend: <FrontEndChart />,
   backend: null,
   uxui: null,
   qa: null,
